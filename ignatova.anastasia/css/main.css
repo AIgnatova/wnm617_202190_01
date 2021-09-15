@@ -1,0 +1,110 @@
+body {
+	margin:0;
+	font-size: 100%;
+	background-color: rgba(255, 225, 217, 0.1);
+
+}
+
+.display-flex {display: flex;}
+.display-inline-flex {display: inline-flex;}
+.display-block {display: block;}
+.display-inline-block {display: inline-block;}
+
+.flex-stretch {flex: 1 1 auto;}
+.flex-none {flex: none;}
+
+.flex-align-center {align-items: center;}
+.flex-justify-center {justify-content: center;}
+.position-absolute {position: absolute;}
+.position-relative {position: relative;}
+
+
+.container {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+
+}
+
+
+.navbar {
+	font-family: 'Urbanist', sans-serif;
+	text-decoration: none;
+}
+
+
+.navbar h1 {
+	margin: 0;
+	font-size: 3;
+	padding: .3em .5em ;
+
+	
+}
+
+
+.navbar ul {
+	list-style-type: none;
+	padding-right: 1em;
+}
+
+.navbar li {
+	padding-left: 10px;
+	font-size: 1.2em;
+
+
+}
+
+.navbar a {
+	text-decoration: none;
+	color: #184539;
+	/*color: inherit;*/
+
+}
+
+.navbar a:hover {
+	text-decoration: line-through;
+}
+
+.card {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-right: auto;
+	margin-left: auto;
+	padding: .5em;
+	max-width: 50vw;
+
+	/*overflow: hidden;
+	position: relative;*/
+}
+
+.paragraph-about {
+	/*max-width: 100%;
+	display: inline-block;*/
+
+}
+
+.paragraph-about, p{
+	font-family: 'Urbanist', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
