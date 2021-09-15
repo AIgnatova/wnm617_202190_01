@@ -4,9 +4,8 @@
 
 - http://anastasia-ignatova.com/
 - http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/index.html
+- http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/about.html
 
 
-## Notes
-
-- Take note of how markdown works
+## Future Notes
 

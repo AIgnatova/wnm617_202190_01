@@ -6,6 +6,6 @@ http://anastasia-ignatova.com/
 http://anastasia-ignatova.com//aau/wnm617/ignatova.anastasia/
 
 
-## Perhaps Some Notes
+## Future Notes
 
-- Take note of how markdown works
+
