@@ -2,10 +2,11 @@
 
 ## Important Links
 
-http://anastasia-ignatova.com/
-http://anastasia-ignatova.com//aau/wnm617/ignatova.anastasia/
+- http://anastasia-ignatova.com/
+- http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/index.html
+- http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/about.html
 
 
-## Future Notes
+## Side Assignments
 
-
+- http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/initializr/
