@@ -1,0 +1,26 @@
+
+
+/*8th hour*/
+
+
+
+.accordion dt {
+	background-color: skyblue;
+	color: white;
+	padding: 0.5em 1em;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+
+}
+
+.accordion dt~dt {
+	margin-top: 1em;
+}
+
+.accordion dd {
+	padding: 1em;
+	margin: 0;
+	border: 2px solid lightgray;
+	border-top-width: 0;
+	display: none;
+}
