@@ -13,6 +13,7 @@
 <script src="lib/js/jquery-2.2.4.min.js"></script>
 
 <script src="js/app.js"></script>
+<script src="js/signin.js"></script>
 
 <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 	
@@ -22,7 +23,7 @@
 <section data-role="page" id="page-signin">
 	<div data-role="main" class="display-flex flex-vertical">
 		<div class="flex-stretch"></div>
-		<form data-ajax="false" class="form" id="signin-form" style="padding:10px">
+		<form data-ajax="false" class="form signin-form" id="signin-form" style="padding:10px">
 			<div class="form-control">
 				<input class="form-input" type="text" id="signin-username" data-role="none" placeholder="Username">
 			</div>
@@ -30,17 +31,68 @@
 			<div class="form-control">
 				<input class="form-input" type="password" id="signin-password" data-role="none" placeholder="Password">
 			</div>
-			<div><a href="#page-recent" class="form-button">Sign In</a></div>
+
+
+			<div>
+				<input type="submit" value="Sign In" class="form-button">
+			</div>
+
+
+			<div class="form-control small centered"> New to TNH? 
+				<a href="#page-signup">Create an account.</a>
+			</div>
+
 		</form>
 	</div>
 </section>
 
 
+<section data-role="page" id="page-signup">
+	<div data-role="main" class="display-flex flex-vertical">
+		<div class="flex-stretch"></div>
+		<form data-ajax="false" class="form signin-form" id="signup-form" style="padding:10px">
 
+
+			<div class="form-control">
+				<label for="signup-email" class="form-label">Email Address</label>
+				<input class="form-input" type="text" id="signup-email" data-role="none" placeholder="Email Address">
+			</div>
+
+
+			<div class="form-control">
+				<label for="signup-password" class="form-label">New Password</label>
+				<input class="form-input" type="password" id="signup-password" data-role="none" placeholder="Password">
+			</div>
+
+
+			<div class="form-control">
+				<label for="signup-password2" class="form-label">Confirm Passrord</label>
+				<input class="form-input" type="password" id="signup-password2" data-role="none" placeholder="Confirm Password">
+			</div>
+
+
+			<div>
+				<input type="submit" value="Sign Up" class="form-button">
+			</div>
+
+
+			<div class="form-control small centered">Already have an account?
+				<a href="#page-signin">Log In</a>
+			</div>
+
+
+		</form>
+		<div class="flex-stretch"></div>
+	</div>
+</section>
+
+
+
+<!-- MAP PAGE -->
 
 <section data-role="page" id="page-recent">
 	<div data-role="main">
-		MAAAAAP!
+		<div class="map"></div>
 	</div>
 
 	<footer data-role="footer">
@@ -57,8 +109,18 @@
 
 
 
+
+
+
+
+
+
+<!-- LIST PAGE -->
+
 <section data-role="page" id="page-list">
 	<div data-role="main">
+		<div class="overscroll floater fill-parent">
+		
 		<ul>
 			<!-- li*10>a[href=#page-animal-profile]{Venue $} -->
 			<li><a href="#page-animal-profile">Venue 1</a></li>
@@ -71,9 +133,54 @@
 			<li><a href="#page-animal-profile">Venue 8</a></li>
 			<li><a href="#page-animal-profile">Venue 9</a></li>
 			<li><a href="#page-animal-profile">Venue 10</a></li>
+			<li><a href="#page-animal-profile">Venue 11</a></li>
+			<li><a href="#page-animal-profile">Venue 12</a></li>
+			<li><a href="#page-animal-profile">Venue 13</a></li>
+			<li><a href="#page-animal-profile">Venue 14</a></li>
+			<li><a href="#page-animal-profile">Venue 15</a></li>
+			<li><a href="#page-animal-profile">Venue 16</a></li>
+			<li><a href="#page-animal-profile">Venue 17</a></li>
+			<li><a href="#page-animal-profile">Venue 18</a></li>
+			<li><a href="#page-animal-profile">Venue 19</a></li>
+			<li><a href="#page-animal-profile">Venue 20</a></li>
+			<li><a href="#page-animal-profile">Venue 21</a></li>
+			<li><a href="#page-animal-profile">Venue 22</a></li>
+			<li><a href="#page-animal-profile">Venue 23</a></li>
+			<li><a href="#page-animal-profile">Venue 24</a></li>
+			<li><a href="#page-animal-profile">Venue 25</a></li>
+			<li><a href="#page-animal-profile">Venue 26</a></li>
+			<li><a href="#page-animal-profile">Venue 27</a></li>
+			<li><a href="#page-animal-profile">Venue 28</a></li>
+			<li><a href="#page-animal-profile">Venue 29</a></li>
+			<li><a href="#page-animal-profile">Venue 30</a></li>
+			<li><a href="#page-animal-profile">Venue 31</a></li>
+			<li><a href="#page-animal-profile">Venue 32</a></li>
+			<li><a href="#page-animal-profile">Venue 33</a></li>
+			<li><a href="#page-animal-profile">Venue 34</a></li>
+			<li><a href="#page-animal-profile">Venue 35</a></li>
+			<li><a href="#page-animal-profile">Venue 36</a></li>
+			<li><a href="#page-animal-profile">Venue 37</a></li>
+			<li><a href="#page-animal-profile">Venue 38</a></li>
+			<li><a href="#page-animal-profile">Venue 39</a></li>
+			<li><a href="#page-animal-profile">Venue 40</a></li>
+			<li><a href="#page-animal-profile">Venue 41</a></li>
+			<li><a href="#page-animal-profile">Venue 42</a></li>
+			<li><a href="#page-animal-profile">Venue 43</a></li>
+			<li><a href="#page-animal-profile">Venue 44</a></li>
+			<li><a href="#page-animal-profile">Venue 45</a></li>
+			<li><a href="#page-animal-profile">Venue 46</a></li>
+			<li><a href="#page-animal-profile">Venue 47</a></li>
+			<li><a href="#page-animal-profile">Venue 48</a></li>
+			<li><a href="#page-animal-profile">Venue 49</a></li>
+			<li><a href="#page-animal-profile">Venue 50</a></li>
 			
-		</ul>
+			</ul>
+		</div>
+		<div class="floater bottom right">
+			<a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
+		</div>
 	</div>
+
 
 	<footer data-role="footer">
 		<ul>
@@ -82,8 +189,45 @@
 			<li><a href="#page-user-profile">Profile</a></li>
 		</ul>
 	</footer>
+
+
+
+<div class="modal active" id="list-add-modal">
+	<div class="modal-back" data-deactivate="#list-add-modal"></div>
+
+	<form class="modal-popup form" id="list-add-form" data-ajax="false">
+
+		<div class="modal-body">
+	<div class="modal-head"> 
+			<h4>Add the Venue</h2> 
+		</div>
+			<div class="form-control">
+				<label for="list-add-name" class="form-label">Venue ame</label>
+				<input type="text" id="list-add-name" class="form-input" data-role="none" placeholder="Add name">
+			</div>
+
+			<div class="form-control">
+				<label for="list-add-type" class="form-label">Type of Venue</label>
+				<input type="text" id="list-add-type" class="form-input" data-role="none" placeholder="(Concert hall, club, art space...)">
+			</div>
+
+			<div class="form-control">
+				<label for="list-add-hours" class="form-label">Hours</label>
+				<input type="text" id="list-add-hours" class="form-input" data-role="none" placeholder="Add hours">
+			</div>
+
+		</div>
+		<div class="modal-foot">
+				<button type="submit" class="form-button" data-role="none">Save Venue Information</button>
+</div>
+		
+	</form>
+</div>
+
 </section>
 
+
+<!-- VENUE PROFILE PAGE -->
 
 <section data-role="page" id="page-animal-profile">
 	<header data-role="header">
@@ -108,12 +252,16 @@
 
 
 
-
+<!-- USER PROFILE PAGE -->
 
 
 <section data-role="page" id="page-user-profile">
-	<div data-role="main">
+	<div data-role="main" class="overscroll">
 		USER!
+	</div>
+
+	<div>
+	<button class="form-button js-logout">Log Out</button>
 	</div>
 
 	<footer data-role="footer">
@@ -129,8 +277,25 @@
 
 
 
+<script >
+	
 
+</script>
 
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
