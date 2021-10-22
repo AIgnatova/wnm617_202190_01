@@ -3,8 +3,8 @@
 ## Important Links
 
 - http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/index.html#page-signin
-- http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/index.html
-- http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/profile/index.html
+- http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/
+- http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/profile/
 - http://anastasia-ignatova.com/aau/wnm617/ignatova.anastasia/profile/about.html
 
 ## Demo

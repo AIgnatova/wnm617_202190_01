@@ -25,16 +25,16 @@
 		<div class="flex-stretch"></div>
 		<form data-ajax="false" class="form signin-form" id="signin-form" style="padding:10px">
 			<div class="form-control">
-				<input class="form-input" type="text" id="signin-username" data-role="none" placeholder="Username">
+				<input class="form-input" type="text" data-role="none" id="signin-username" data-role="none" placeholder="Username">
 			</div>
 
 			<div class="form-control">
-				<input class="form-input" type="password" id="signin-password" data-role="none" placeholder="Password">
+				<input class="form-input" type="password" data-role="none" id="signin-password" data-role="none" placeholder="Password">
 			</div>
 
 
 			<div>
-				<input type="submit" value="Sign In" class="form-button">
+				<input type="submit" value="Sign In" data-role="none" class="form-button">
 			</div>
 
 
@@ -72,7 +72,7 @@
 
 
 			<div>
-				<input type="submit" value="Sign Up" class="form-button">
+				<input type="submit" value="Sign Up" data-role="none" class="form-button">
 			</div>
 
 
@@ -93,22 +93,17 @@
 <section data-role="page" id="page-recent">
 	<div data-role="main">
 		<div class="map"></div>
+		     <div class="floater" style="top:20%;left:20%;">
+            <a href="#" data-activate="#recent-add-modal"><img src="img/icons/marker.svg" class="icon" style="width:30px;height:30px"></a>
+         </div>
+
+         <div class="floater bottom right">
+            <a href="#page-location-choose-venue" class="btn-circle">&plus;</a>
+         </div>
 	</div>
 
-	<footer data-role="footer">
-		<ul>
-			<li><a href="#page-recent">Recent</a></li>
-			<li><a href="#page-list">List</a></li>
-			<li><a href="#page-user-profile">Profile</a></li>
-		</ul>
-	</footer>
+	<footer data-role="footer" data-template="#footer-template"></footer>
 </section>
-
-
-
-
-
-
 
 
 
@@ -118,136 +113,151 @@
 <!-- LIST PAGE -->
 
 <section data-role="page" id="page-list">
-	<div data-role="main">
-		<div class="overscroll floater fill-parent">
-		
-		<ul>
-			<!-- li*10>a[href=#page-animal-profile]{Venue $} -->
-			<li><a href="#page-animal-profile">Venue 1</a></li>
-			<li><a href="#page-animal-profile">Venue 2</a></li>
-			<li><a href="#page-animal-profile">Venue 3</a></li>
-			<li><a href="#page-animal-profile">Venue 4</a></li>
-			<li><a href="#page-animal-profile">Venue 5</a></li>
-			<li><a href="#page-animal-profile">Venue 6</a></li>
-			<li><a href="#page-animal-profile">Venue 7</a></li>
-			<li><a href="#page-animal-profile">Venue 8</a></li>
-			<li><a href="#page-animal-profile">Venue 9</a></li>
-			<li><a href="#page-animal-profile">Venue 10</a></li>
-			<li><a href="#page-animal-profile">Venue 11</a></li>
-			<li><a href="#page-animal-profile">Venue 12</a></li>
-			<li><a href="#page-animal-profile">Venue 13</a></li>
-			<li><a href="#page-animal-profile">Venue 14</a></li>
-			<li><a href="#page-animal-profile">Venue 15</a></li>
-			<li><a href="#page-animal-profile">Venue 16</a></li>
-			<li><a href="#page-animal-profile">Venue 17</a></li>
-			<li><a href="#page-animal-profile">Venue 18</a></li>
-			<li><a href="#page-animal-profile">Venue 19</a></li>
-			<li><a href="#page-animal-profile">Venue 20</a></li>
-			<li><a href="#page-animal-profile">Venue 21</a></li>
-			<li><a href="#page-animal-profile">Venue 22</a></li>
-			<li><a href="#page-animal-profile">Venue 23</a></li>
-			<li><a href="#page-animal-profile">Venue 24</a></li>
-			<li><a href="#page-animal-profile">Venue 25</a></li>
-			<li><a href="#page-animal-profile">Venue 26</a></li>
-			<li><a href="#page-animal-profile">Venue 27</a></li>
-			<li><a href="#page-animal-profile">Venue 28</a></li>
-			<li><a href="#page-animal-profile">Venue 29</a></li>
-			<li><a href="#page-animal-profile">Venue 30</a></li>
-			<li><a href="#page-animal-profile">Venue 31</a></li>
-			<li><a href="#page-animal-profile">Venue 32</a></li>
-			<li><a href="#page-animal-profile">Venue 33</a></li>
-			<li><a href="#page-animal-profile">Venue 34</a></li>
-			<li><a href="#page-animal-profile">Venue 35</a></li>
-			<li><a href="#page-animal-profile">Venue 36</a></li>
-			<li><a href="#page-animal-profile">Venue 37</a></li>
-			<li><a href="#page-animal-profile">Venue 38</a></li>
-			<li><a href="#page-animal-profile">Venue 39</a></li>
-			<li><a href="#page-animal-profile">Venue 40</a></li>
-			<li><a href="#page-animal-profile">Venue 41</a></li>
-			<li><a href="#page-animal-profile">Venue 42</a></li>
-			<li><a href="#page-animal-profile">Venue 43</a></li>
-			<li><a href="#page-animal-profile">Venue 44</a></li>
-			<li><a href="#page-animal-profile">Venue 45</a></li>
-			<li><a href="#page-animal-profile">Venue 46</a></li>
-			<li><a href="#page-animal-profile">Venue 47</a></li>
-			<li><a href="#page-animal-profile">Venue 48</a></li>
-			<li><a href="#page-animal-profile">Venue 49</a></li>
-			<li><a href="#page-animal-profile">Venue 50</a></li>
-			
+      <div data-role="main">
+         <div class="overscroll floater fill-parent">
+		<ul class="venue-list">
+			<!-- li*30>a[href=#venue-list-item]{Venue $} -->
+			   <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
+               <li class="venue-list-item" data-template="#venue-item-template">Venue</li>
 			</ul>
 		</div>
-		<div class="floater bottom right">
-			<a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
-		</div>
-	</div>
+         <div class="floater bottom right">
+            <a href="#venue-item-add" class="btn-circle">&plus;</a>
+         </div>
+      </div>
+	
+	<!--  <div class="floater bottom right">
+            <a href="venue-item-add" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
+         </div>
+      </div> -->
 
-
-	<footer data-role="footer">
-		<ul>
-			<li><a href="#page-recent">Recent</a></li>
-			<li><a href="#page-list">List</a></li>
-			<li><a href="#page-user-profile">Profile</a></li>
-		</ul>
-	</footer>
-
-
-
-<div class="modal active" id="list-add-modal">
-	<div class="modal-back" data-deactivate="#list-add-modal"></div>
-
-	<form class="modal-popup form" id="list-add-form" data-ajax="false">
-
-		<div class="modal-body">
-	<div class="modal-head"> 
-			<h4>Add the Venue</h2> 
-		</div>
-			<div class="form-control">
-				<label for="list-add-name" class="form-label">Venue ame</label>
-				<input type="text" id="list-add-name" class="form-input" data-role="none" placeholder="Add name">
-			</div>
-
-			<div class="form-control">
-				<label for="list-add-type" class="form-label">Type of Venue</label>
-				<input type="text" id="list-add-type" class="form-input" data-role="none" placeholder="(Concert hall, club, art space...)">
-			</div>
-
-			<div class="form-control">
-				<label for="list-add-hours" class="form-label">Hours</label>
-				<input type="text" id="list-add-hours" class="form-input" data-role="none" placeholder="Add hours">
-			</div>
-
-		</div>
-		<div class="modal-foot">
-				<button type="submit" class="form-button" data-role="none">Save Venue Information</button>
-</div>
-		
-	</form>
-</div>
-
+	<footer data-role="footer" data-template="#footer-template"></footer>
 </section>
 
 
 <!-- VENUE PROFILE PAGE -->
 
-<section data-role="page" id="page-animal-profile">
+<section data-role="page" id="venue-list-item">
 	<header data-role="header">
-		<h1>VENUE!</h1>
-		<ul>
-			<li>
-				<a href="#" data-rel="back">Back</a>
-			</li>
-			
-		</ul>
-	</header>
+		<h1>Venue</h1>
+         <ul>
+            <a href="#" data-role="button" data-rel="back">Back</a>
+            <li class="flex-stretch"></li>
+            <li><a href="#page-location-set-location">Next</a></li>
+         </ul>
+      </header>
 
 	<div data-role="main">
 		Venue...
 	</div>
-
 	
-		
 </section>
 
+<section data-role="page" id="venue-item-add">
+	<header data-role="header">
+		<h1>Add venue</h1>
+         <ul>
+            <a href="#" data-role="button" data-rel="back">Cancel</a>
+       
+         </ul>
+      </header>
+
+	<div data-role="main">
+		<form class="fill-parent display-flex flex-vertical" id="add-venue-form" data-ajax="false">
+			<div class="flex-stretch position-relative">
+				<div class="fill-parent overscroll position-absolute padding-md">
+					<div class="form-control">
+						<label for="add-venue-name" class="form-label">Venue name</label>
+						<input type="text" id="add-venue-name" class="form-input" data-role="none" placeholder="Add name">
+					</div>
+
+					<div class="form-control">
+						<label for="add-venue-type" class="form-label">Type of venue</label>
+						<input type="text" id="add-venue-type" class="form-input" data-role="none" placeholder="(Concert hall, club, art space...)">
+					</div>
+
+					<div class="form-control">
+						<label for="add-venue-hours" class="form-label">Operating hours</label>
+						<input type="text" id="add-venue-hours" class="form-input" data-role="none" placeholder="Add hours">
+					</div>
+
+					<div class="flex-none padding-md">
+						<a href="#page-list=" class="form-button">Save</a>
+						<!-- <div class="modal-foot">
+							<button type="submit" class="form-button" data-role="none">Save Venue Information</button> -->
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+</section>
+
+
+<section data-role="page" id="page-location-choose-venue">
+	<header data-role="header">
+		<h1>VENUE!</h1>
+		<ul>
+			<li><a href="#"  data-rel="back">Back</a></li>
+			<li class="flex-stretch"></li>
+			<li><a href="#page-location-set-location" data-role="button">Next</a></li>
+		</ul>
+	</header>
+
+	<div data-role="main">
+		Venue Info
+	</div>
+	
+</section>
+
+
+<section data-role="page" id="page-location-set-location">
+	<header data-role="header">
+		<h1>Set location</h1>
+		<ul>
+			<li><a href="#" data-rel="back">Back</a></li>
+			<li class="flex-stretch"></li>
+			<li><a href="#page-location-description" data-role="button">Next</a></li>
+		</ul>
+	</header>
+
+		<div data-role="main">
+			Location...
+		</div>
+	
+</section>
+
+
+<section data-role="page" id="page-location-description">
+	<header data-role="header">
+		<h1>Add description</h1>
+		<ul>
+			<li><a href="#"  data-rel="back">Back</a></li>
+			<li class="flex-stretch"></li>
+			<li><a href="#page-list" data-role="button">Save</a></li>
+		</ul>
+	</header>
+
+		<div data-role="main">
+			Description
+		</div>
+</section>
 
 
 
@@ -261,27 +271,49 @@
 	</div>
 
 	<div>
-	<button class="form-button js-logout">Log Out</button>
+	 <button class="form-button js-logout">Log Out</button>
 	</div>
 
-	<footer data-role="footer">
-		<ul>
-			<li><a href="#page-recent">Recent</a></li>
-			<li><a href="#page-list">List</a></li>
-			<li><a href="#page-user-profile">Profile</a></li>
-		</ul>
-	</footer>
+	<footer data-role="footer" data-template="#footer-template"></footer>
 </section>
 
 
 
 
 
-<script >
-	
 
+<script type="text/template" id="footer-template">
+   <ul class="nav-icon-set">
+      <li><a href="#page-recent" data-activateone=".nav-icon-set li:nth-child(1)">
+         <span class="nav-icon"><img class="icon" src="img/icons/map.svg"/>
+         </span>
+        <!--  <span class="nav-icon-label">Map</span> -->
+      </a></li>
+      <li><a href="#page-list" data-activateone=".nav-icon-set li:nth-child(2)">
+         <span class="nav-icon"><img class="icon" 
+         src="img/icons/list.svg"> 
+         </span>
+         <!-- <span class="nav-icon-label">List</span> -->
+      </a></li>
+      <li><a href="#page-user-profile" data-activateone=".nav-icon-set li:nth-child(3)">
+         <span class="nav-icon"><img class="icon" src="img/icons/user.svg"></span>
+        <!--  <span class="nav-icon-label">Profile</span> -->
+      </a></li>
+   </ul>
 </script>
 
+  <script type="text/template" id="venue-item-template">
+   <a href="#page-venue-profile" class="display-flex">
+      <div class="flex-none venue-list-item-image">
+         <img src="https://via.placeholder.com/400x400?text=Venue" alt="Image Placeholder">
+      </div>
+      <div class="flex-stretch venuelist-item-body padding-md">
+         <div class="venue-list-item-name">Venue name</div>
+         <div class="venue-list-item-type"><strong>Venue type </strong>Venue</div>
+         <div class="venue-list-item-hours"><strong>Hours </strong>Venue hours </div>
+      </div>
+   </a>
+   </script>
 
 </body>
 </html>

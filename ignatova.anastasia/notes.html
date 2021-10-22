@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Notes</title>
+</head>
+<body>
+	Modal
+
+
+<!-- BUTTON -->
+</div>
+         <div class="floater bottom right">
+            <a href="#" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
+         </div>
+      </div>
+
+
+
+
+<!-- MODAL -->
+<div class="modal active" id="list-add-modal">
+	<div class="modal-back" data-deactivate="#list-add-modal"></div>
+
+	<form class="modal-popup form" id="list-add-form" data-ajax="false">
+
+		<div class="modal-body">
+
+			<div class="modal-head">
+				<h4>Add the Venue</h2> 
+			</div>
+
+			<div class="form-control">
+				<label for="list-add-name" class="form-label">Venue name</label>
+				<input type="text" id="list-add-name" class="form-input" data-role="none" placeholder="Add name">
+			</div>
+
+			<div class="form-control">
+				<label for="list-add-type" class="form-label">Type of venue</label>
+				<input type="text" id="list-add-type" class="form-input" data-role="none" placeholder="(Concert hall, club, art space...)">
+			</div>
+
+			<div class="form-control">
+				<label for="list-add-hours" class="form-label">Operating hours</label>
+				<input type="text" id="list-add-hours" class="form-input" data-role="none" placeholder="Add hours">
+			</div>
+
+		</div>
+
+			<div class="modal-foot">
+				<button type="submit" class="form-button" data-role="none">Save Venue Information</button>
+			</div>
+		
+	</form>
+</div>
+
+
+</body>
+</html>

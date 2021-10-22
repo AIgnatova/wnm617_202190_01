@@ -12,20 +12,23 @@ $(()=>{
 		checkSigninForm();
 	})
 
-.on("submit", "#list-add-form",function(e) {
+	.on("submit", "#list-add-form",function(e) {
 		e.preventDefault();
 		// checkSigninForm();
 	})
 
-
-
-	
-
 // ANCHOR CLICKS
+   .on("click",".js-logout",function(e) {
+      e.preventDefault();
+      sessionStorage.removeItem("userId");
+      checkUserId();
+   })
+
 	  .on("click","[data-activate]",function(e){
       let target = $(this).data("activate");
       $(target).addClass("active");
    })
+
    .on("click","[data-deactivate]",function(e){
       let target = $(this).data("deactivate");
       $(target).removeClass("active");
@@ -38,6 +41,17 @@ $(()=>{
       let target = $(this).data("activateone");
       console.log(target)
       $(target).addClass("active").siblings().removeClass('active');
+   });
+
+
+ $("[data-template]").each(function(){
+      let target = $(this).data("template");
+      $(this).html($(target).html());
    })
-   
+
+
+
+
+
+
 });
