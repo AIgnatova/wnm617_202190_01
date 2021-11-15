@@ -1,23 +1,21 @@
 <?php
 
 function makeConn() {
-   include "auth.php";
-   try {
-      $conn = new PDO(...Auth());
-      $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-      return $conn;
-   } catch(PDOException $e) {
-      die('{"error":"'.$e->getMessage().'"}');
-   }
-
+	include "auth.php";
+	try {
+		$conn = new PDO(...Auth());
+		$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		return $conn;
+  } catch(PDOException $e) {
+		die('{"error":"'.$e->getMessage().'"}');
 }
-
+}
 
 /* $r = PDO result */
 function fetchAll($r) {
-   $a = [];
-   while($row = $r->fetch(\PDO::FETCH_OBJ)) $a[] = $row;
-   return $a;
+	$a = [];
+	while($row = $r->fetch(\PDO::FETCH_OBJ)) $a[] = $row;
+	return $a;
 }
 
 /*
@@ -26,33 +24,77 @@ $ps = prepared statement
 $p = parameters
 */
 function makeQuery($c,$ps,$p,$makeResults=true) {
-   try {
-      if(count($p)) {
-         $stmt = $c->prepare($ps);
-         $stmt->execute($p);
-      } else {
-         $stmt = $c->query($ps);
+	try {
+		if(count($p)) {
+			$stmt = $c->prepare($ps);
+			$stmt->execute($p);
+		} else {
+			$stmt = $c->query($ps);
+		}
+
+		$r = $makeResults ? fetchAll($stmt) : [];
+
+		return [
+			// "statement"=>$ps,
+			// "params"=>$p,
+			"result"=>$r
+		];
+	} catch(PDOException $e) {
+		return ["error"=>"Query Failed: ".$e->getMessage()];
+	}
+}
+
+
+function makeStatement($data) {
+try{
+	$c = makeConn();
+	$t = @$data->type;
+	$p = @$data->params; 
+
+	switch($t) {
+		case "users_all":
+			return makeQuery($c, "SELECT * FROM `track_users`",$p);
+		case "venues_all":
+			return makeQuery($c, "SELECT * FROM `track_venues`",$p);
+		case "locations_all":
+			return makeQuery($c, "SELECT * FROM `track_locations`",$p);
+
+
+		case "user_by_id":
+			return makeQuery($c, "SELECT * FROM `track_users` WHERE `id`=?",$p);
+		case "venue_by_id":
+			return makeQuery($c, "SELECT * FROM `track_venues` WHERE `id`=?",$p);
+		case "location_by_id":
+			return makeQuery($c, "SELECT * FROM `track_locations` WHERE `id`=?",$p);
+
+		
+		case "venues_by_user_id":
+			return makeQuery($c, "SELECT * FROM `track_venues` WHERE `user_id`=?",$p);
+		case "locations_by_venue_id":
+			return makeQuery($c, "SELECT * FROM `track_locations` WHERE `venue_id`=?",$p);
+
+
+		case "check_signin":
+			return makeQuery($c, "SELECT id FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
+
+
+
+
+
+         default: return ["error"=>"No Matched Type"];
       }
 
-      $r = $makeResults ? fetchAll($stmt) : [];
-
-      return [
-         // "statement"=>$ps,
-         // "params"=>$p,
-         "result"=>$r
-      ];
-   } catch(PDOException $e) {
-      return ["error"=>"Query Failed: ".$e->getMessage()];
+   } catch(Exception $e) {
+      return ["error"=>"Bad Data"];
    }
 }
 
+
+$data = json_decode(file_get_contents("php://input"));
+
 die(
-   json_encode(
-      makeQuery(
-         makeConn(),
-         "SELECT * FROM track_venues WHERE id = ?",
-         [1]
-      ),
-      JSON_NUMERIC_CHECK
-   )
+	json_encode(
+		makeStatement($data),
+		JSON_NUMERIC_CHECK
+	)
 );

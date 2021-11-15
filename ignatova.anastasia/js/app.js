@@ -1,10 +1,37 @@
 // DOCUMENT READY
 $(()=>{
 
+   // query({
+   //    type:'user_by_id',
+   //    params:[3]
+   // }).then(d=>{
+   //    console.log(d)
+   // })
+
+
 	checkUserId();
 
 	// Event Delegation
 	$(document) 
+
+     .on("pagecontainerbeforeshow",function(event, ui){
+
+       switch(ui.toPage[0].id) {
+         case "page-recent": RecentPage(); break;
+         case "page-list": ListPage(); break;
+         case "page-user-profile": UserProfilePage(); break;
+         case "page-venue-profile": VenueProfilePage(); break;
+      }
+       // console.dir(ui.toPage[0])
+
+      // Page Routing
+      // switch(ui.toPage[0].id) {
+      //    case "page-recent": RecentPage(); break;
+      //    case "page-list": ListPage(); break;
+      //    case "page-user-profile": UserProfilePage(); break;
+      //    case "page-venue-profile": VenueProfilePage(); break;
+      // }
+   })
 
 	// FORM SUBMITS
 	.on("submit", "#signin-form",function(e) {

@@ -147,6 +147,27 @@ a {
 }
 
 
+
+
+/* NAV */
+.nav {
+   list-style-type: none;
+   margin-top: 0;
+   margin-bottom: 0;
+   padding-left: 0;
+   display: flex;
+}
+
+.nav li {
+   flex: 1 1 auto;
+   padding: 0 1em;
+   text-align: center;
+   line-height: var(--header-height);
+}
+
+
+
+
 /*FORM ELEMENTS*/
 
 .form {}
@@ -377,10 +398,26 @@ text-decoration: none;
 }
 
 
+/* VENUE PROFILE */
 
+.venue-profile-top {
+	flex: none;
+	height: 40vh;
+}
 
+.venue-profile-bottom {
+	flex: 1 1 auto;
+	position: relative;
+}
 
-
+.floating-header {
+   position: absolute;
+   background-color: rgba(255,255,255,0.15);
+   width: 100%;
+   top: 0;
+   left: 0;
+   box-shadow: none;
+}
 
 
 
