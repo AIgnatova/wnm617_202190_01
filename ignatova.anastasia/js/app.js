@@ -22,15 +22,6 @@ $(()=>{
          case "page-user-profile": UserProfilePage(); break;
          case "page-venue-profile": VenueProfilePage(); break;
       }
-       // console.dir(ui.toPage[0])
-
-      // Page Routing
-      // switch(ui.toPage[0].id) {
-      //    case "page-recent": RecentPage(); break;
-      //    case "page-list": ListPage(); break;
-      //    case "page-user-profile": UserProfilePage(); break;
-      //    case "page-venue-profile": VenueProfilePage(); break;
-      // }
    })
 
 	// FORM SUBMITS
@@ -66,7 +57,7 @@ $(()=>{
    })
    .on("click","[data-activateone]",function(e){
       let target = $(this).data("activateone");
-      console.log(target)
+      // console.log(target)
       $(target).addClass("active").siblings().removeClass('active');
    });
 
@@ -74,7 +65,7 @@ $(()=>{
  $("[data-template]").each(function(){
       let target = $(this).data("template");
       $(this).html($(target).html());
-   })
+   });
 
 
 
