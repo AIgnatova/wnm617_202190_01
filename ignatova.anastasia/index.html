@@ -17,9 +17,12 @@
 <script src="js/pages.js"></script>
 <script src="js/parts.js"></script>
 <script src="js/signin.js"></script>
+<script src="js/maps.js"></script>
 
 
 <!-- AIzaSyDtzXNnDSTqy1DVlybbEhPZDWLvxc0TUMU -->
+<!-- For Maps: Google Cloud Platform - Console page -->
+<!-- Maps JS API... APIs, Credentials (to edit API key) -->
 
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtzXNnDSTqy1DVlybbEhPZDWLvxc0TUMU"
@@ -63,22 +66,31 @@
 		<div class="flex-stretch"></div>
 		<form data-ajax="false" class="form signin-form" id="signup-form" style="padding:10px">
 
+				<div class="form-control">
+				<input class="form-input-signup" type="text" id="signup-username" data-role="none" placeholder="Username">
+							</div>
 
-			<div class="form-control">
-				<label for="signup-email" class="form-label">Email Address</label>
-				<input class="form-input" type="text" id="signup-email" data-role="none" placeholder="Email Address">
+
+				<div class="form-control">
+				<input class="form-input-signup" type="text" id="signup-name" data-role="none" placeholder="Full Name">
 			</div>
 
 
 			<div class="form-control">
-				<label for="signup-password" class="form-label">New Password</label>
-				<input class="form-input" type="password" id="signup-password" data-role="none" placeholder="Password">
+				<!-- <label for="signup-email" class="form-label">Email Address</label> -->
+				<input class="form-input-signup" type="text" id="signup-email" data-role="none" placeholder="Email Address">
 			</div>
 
 
 			<div class="form-control">
-				<label for="signup-password2" class="form-label">Confirm Passrord</label>
-				<input class="form-input" type="password" id="signup-password2" data-role="none" placeholder="Confirm Password">
+				<!-- <label for="signup-password" class="form-label">New Password</label> -->
+				<input class="form-input-signup" type="password" id="signup-password" data-role="none" placeholder="Password">
+			</div>
+
+
+			<div class="form-control">
+				<!-- <label for="signup-password2" class="form-label">Confirm Passrord</label> -->
+				<input class="form-input-signup" type="password" id="signup-password2" data-role="none" placeholder="Confirm Password">
 			</div>
 
 
@@ -104,9 +116,11 @@
 <section data-role="page" id="page-recent">
 	<div data-role="main">
 		<div class="map"></div>
+
+		    <!-- Floater marker - red pin
 		     <div class="floater" style="top:20%;left:20%;">
             <a href="#" data-activate="#recent-add-modal"><img src="img/icons/marker.svg" class="icon" style="width:30px;height:30px"></a>
-         </div>
+         </div> -->
 
          <div class="floater bottom right">
             <a href="#page-location-choose-venue" class="btn-circle">&plus;</a>
@@ -162,7 +176,7 @@
 	<div data-role="main" class="display:flex flex-vertical">
 		<div class="venue-profile-top">
 
-			<img src="https://via.placeholder.com/600x600?text=Animal" alt="" style="width:100%;height:100%;object-fit:cover">
+			<img src="https://via.placeholder.com/600x600?text=Venue" alt="" style="width:100%;height:100%;object-fit:cover">
 		</div>
 
 		<div class="venue-profile-middle">
@@ -292,9 +306,9 @@
 <section data-role="page" id="page-user-profile">
 	<div data-role="main" class="overscroll"></div>
 
-	<!-- <div>
-	 <button class="form-button js-logout">Log Out</button>
-	</div> -->
+	<div>
+	 <button class="form-button js-logout" data-role="none">Log Out</button>
+	</div>
 
 	<footer data-role="footer" data-template="#footer-template"></footer>
 </section>
@@ -309,7 +323,7 @@
       <li><a href="#page-recent" data-activateone=".nav-icon-set li:nth-child(1)">
          <span class="nav-icon"><img class="icon" src="img/icons/map.svg"/>
          </span>
-        <!--  <span class="nav-icon-label">Map</span> -->
+        <!--  <span class="nav-icon-label">Recent</span> -->
       </a></li>
       <li><a href="#page-list" data-activateone=".nav-icon-set li:nth-child(2)">
          <span class="nav-icon"><img class="icon" 

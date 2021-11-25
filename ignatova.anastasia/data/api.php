@@ -52,16 +52,16 @@ try{
 	$p = @$data->params; 
 
 	switch($t) {
-		case "users_all":
-			return makeQuery($c, "SELECT * FROM `track_users`",$p);
-		case "venues_all":
-			return makeQuery($c, "SELECT * FROM `track_venues`",$p);
-		case "locations_all":
-			return makeQuery($c, "SELECT * FROM `track_locations`",$p);
+		// case "users_all":
+		// 	return makeQuery($c, "SELECT * FROM `track_users`",$p);
+		// case "venues_all":
+		// 	return makeQuery($c, "SELECT * FROM `track_venues`",$p);
+		// case "locations_all":
+		// 	return makeQuery($c, "SELECT * FROM `track_locations`",$p);
 
 
 		case "user_by_id":
-			return makeQuery($c, "SELECT * FROM `track_users` WHERE `id`=?",$p);
+			return makeQuery($c, "SELECT id,name,username,email,img,date_create FROM `track_users` WHERE `id`=?",$p);
 		case "venue_by_id":
 			return makeQuery($c, "SELECT * FROM `track_venues` WHERE `id`=?",$p);
 		case "location_by_id":
@@ -77,9 +77,24 @@ try{
 		case "check_signin":
 			return makeQuery($c, "SELECT id FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
 
-
-
-
+case "recent_venue_locations":
+            return makeQuery($c,"SELECT *
+               FROM `track_venues` a
+               JOIN (
+                  SELECT lg.*
+                  FROM `track_locations` lg
+                  WHERE lg.id = (
+                     SELECT lt.id
+                     FROM `track_locations` lt
+                     WHERE lt.venue_id = lg.venue_id
+                     ORDER BY lt.date_create DESC
+                     LIMIT 1
+                  )
+               ) l
+               ON a.id = l.venue_id
+               WHERE a.user_id = ?
+               ORDER BY l.venue_id, l.date_create DESC
+               ",$p);
 
          default: return ["error"=>"No Matched Type"];
       }
@@ -88,6 +103,21 @@ try{
       return ["error"=>"Bad Data"];
    }
 }
+
+
+
+
+// 			pass with Javascript
+// 			case "recent_venue_locations":
+// 			return makeQuery($c,"SELECT * 
+// 				FROM `track_venues` a
+// 				JOIN `track_locations` l
+// 				ON a.id = l.venue_id
+// 				WHERE a.user_id = ?
+// 				",$p);
+
+//          default: return ["error"=>"No Matched Type"];
+//       }
 
 
 $data = json_decode(file_get_contents("php://input"));

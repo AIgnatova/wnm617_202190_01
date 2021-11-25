@@ -4,12 +4,19 @@
 	--color-neutral-medium: #ffc1a0;
 	--color-neutral-dark: #444;
 
-	--color-main-light: #e2e9ff;
-	--color-main-medium: #274c77;
-	--color-main-dark: #1c2541;
+/*neon salad green*/
+	--color-main-light: ##8DF27E;
+/*gray*/
+	--color-main-medium: ##8C8C8C; 
+/*almost black*/
+	--color-main-dark: #363636;
 
-	--color-accent-dark: #d80032;
-	--color-accent-medium: #ef233c;
+/*neon green*/
+	--color-accent-dark: #11D979;
+/*neon teal green*/
+	--color-accent-medium: #00D6BC;
+/*neon super light green*/
+	--color-accent-light: #72FFCD;
 
 	--header-height: 3rem;
 
@@ -31,8 +38,8 @@
 
 body {
 	font-family: var(--font-sans);
-	background-color: var(--color-main-dark);
-	color: var(--color-main-light);
+	background-color: var(--color-main-light);
+	color: var(--color-main-dark);
 }
 
 a {
@@ -102,7 +109,7 @@ a {
 	height: var(--header-height);
 	line-height: var(--header-height);
 	border-width: 0;
-	background-color: var(--color-main-medium);
+	background-color: var(--color-accent-medium);
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	position: relative;
 	overflow: hidden;
@@ -175,17 +182,23 @@ a {
 	margin: 1em 0;
 }
 
+/*#signup-form {
+	width: 100%;
+	margin: 0 auto;
+}*/
+
 .signin-form .form-input {
 width: 100%;
 display: inline-block;
-border: 1px solid var(--color-main-light);
+border: 1px solid var(--color-accent-medium);
 margin: 0;
-padding: 7px 5px;
-padding-bottom: 2px;
-border-radius: 0.3em;
+padding: .5em .5px;
+padding-left: .5em;
+border-radius: 1em;
 outline: 0;
 font: inherit;
 }
+
 
 .form-input {
 width: 100%;
@@ -201,35 +214,49 @@ font: inherit;
 }
 
 
-
+/*.form-button.js-logout {
+	background-color: var(--color-main-medium);
+}
+*/
+.form-input-signup {
+width: 95%;
+display: inline-block;
+border: none;
+border-bottom: 1px solid var(--color-accent-medium);
+margin-left: .5em;
+padding: .5em .5em;
+padding-left: .5em;
+outline: 0;
+font: inherit;
+}
 
 .form .form-button,
-.form-button {
+.form-button .js-logout {
 width: 100%;
 display: inline-block;
 border-width: 0;
-background-color: var(--color-main-light);
+background-color: var(--color-accent-medium);
 margin: 0;
-padding: 0.5em 1em;
-border-radius: 0.3em;
+padding: 0.5em;
+border-radius: 1em;
 outline: 0;
 font: inherit;
 text-align: center;
 cursor: pointer;
 text-decoration: none;
 -webkit-appearance: none;
-
 }
 
+/*the general button look*/
 .form-button {
 width: 100%;
 display: inline-block;
 border-width: 0;
-background-color: var(--color-main-light);
+background-color: var(--color-accent-medium);
 color: var(--color-black);
-margin: 0;
+/*margin: 0;*/
 padding: 0.5em 1em;
-border-radius: 0.3em;
+border-radius: 1em;
 outline: 0;
 font: inherit;
 text-align: center;
@@ -242,6 +269,7 @@ text-decoration: none;
 	font-size: 0.8em;
 	color: var(--color-main-medium);
 	margin: 1rem 0 0;
+	padding: 0.2em;
 }
 
 
@@ -253,9 +281,6 @@ text-decoration: none;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url(../img/map.png);
-	background-size: cover;
-	background-position: center;
 }
 
 
@@ -271,7 +296,7 @@ text-decoration: none;
 /*Circle Button*/
 .btn-circle {
 	display: inline-block;
-	background-color: var(--color-white);
+	background-color: var(--color-accent-medium);
 	width: 3rem;
 	height: 3rem;
 	line-height: 3rem;
@@ -340,6 +365,7 @@ text-decoration: none;
 	width: 1.5em;
 	height: 1.5em;
 	display: inline-block;
+	margin: 7px;
 }
 
 .nav-icon-set {
@@ -350,6 +376,7 @@ text-decoration: none;
 	display: block;
 	line-height: 2rem;
 	font-size: 1.5rem;
+	vertical-align: middle;
 }
 
 .nav-icon .icon {
@@ -375,8 +402,8 @@ text-decoration: none;
    margin-top: 1em;
 }
 
-.venue-list-item a {
-    box-shadow: 0 5px 10px rgb(0 0 0 / 15%);
+.venue-list-item {
+    box-shadow: 0 5px 10px rgba(114, 255, 205,.5);
     border-radius: 1em;
     overflow: hidden;
     font-weight: normal;
@@ -419,7 +446,7 @@ text-decoration: none;
    box-shadow: none;
 }
 
-
+/*USER PROFILE*/
 
 
 

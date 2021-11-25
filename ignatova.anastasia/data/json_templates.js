@@ -84,7 +84,7 @@
       var genres = {
         club:["house","techno","edm"],
         concert:["rock","alternative","pop","rap"],
-        outdoor:["festival","country","edm"]
+        outdoor:["festival","camp-out","gathering"]
       };
       var chosen_type = genres[this.type];
       var chosen_index = tags.integer(0,chosen_type.length-1);
@@ -98,12 +98,12 @@
   
     img: function(tags) {
       return 'https://via.placeholder.com/400/'+
-        tags.integer(700,999) + '/fff/?text=' + this.username;
+        tags.integer(700,999) + '/fff/?text=' + this.name;
   },
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}'
   }
   
-]   
+]     
  
 
 

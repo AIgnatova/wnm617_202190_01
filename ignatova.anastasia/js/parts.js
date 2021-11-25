@@ -5,8 +5,7 @@
 
 const makeVenueList = templater((o)=>`
  <div class="venue-list-item"> 
- <a href="#page-venue-profile" class="display-flex"
- <div class="display-flex venue-jump data-id="${o.id}">"
+ <div class="display-flex venue-jump" data-id="${o.id}">
       <div class="flex-none venue-list-item-image">
          <img src="${o.img}" alt="Venue image">
       </div>
@@ -16,8 +15,7 @@ const makeVenueList = templater((o)=>`
          <div class="venue-list-item-genre"><strong>Genre</strong> ${o.genre}</div>
          <div class="venue-list-item-hours"><strong>Hours</strong>Hours</div>
       </div>
-   </div> 
-   </a>  
+   </div>   
    </div>
 	`);
 

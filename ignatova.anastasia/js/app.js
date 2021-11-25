@@ -42,6 +42,16 @@ $(()=>{
       checkUserId();
    })
 
+
+// throw to show custom error
+
+   .on("click",".venue-jump",function(e) {
+      if(!$(this).data("id")) throw("No ID on element")
+      sessionStorage.venueId = $(this).data("id");
+      $.mobile.navigate("#page-venue-profile");
+   })
+
+
 	  .on("click","[data-activate]",function(e){
       let target = $(this).data("activate");
       $(target).addClass("active");
