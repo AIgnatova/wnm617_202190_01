@@ -15,7 +15,9 @@ $(()=>{
 	$(document) 
 
      .on("pagecontainerbeforeshow",function(event, ui){
-
+      // page routing
+      // when we're navigating to this page - run this function
+      
        switch(ui.toPage[0].id) {
          case "page-recent": RecentPage(); break;
          case "page-list": ListPage(); break;
@@ -35,6 +37,7 @@ $(()=>{
 		// checkSigninForm();
 	})
 
+
 // ANCHOR CLICKS
    .on("click",".js-logout",function(e) {
       e.preventDefault();
@@ -51,11 +54,20 @@ $(()=>{
       $.mobile.navigate("#page-venue-profile");
    })
 
+ .on("click",".venue-profile-middle li",function(e){
+      let id = $(this).index();
+      $(this).addClass("active")
+         .siblings().removeClass("active");
+      $(this).closest(".venue-profile-middle").next().children().eq(id).addClass("active")
+         .siblings().removeClass("active");
+   })
 
 	  .on("click","[data-activate]",function(e){
       let target = $(this).data("activate");
       $(target).addClass("active");
    })
+
+
 
    .on("click","[data-deactivate]",function(e){
       let target = $(this).data("deactivate");
@@ -72,14 +84,15 @@ $(()=>{
    });
 
 
- $("[data-template]").each(function(){
+
+   $("[data-template]").each(function(){
       let target = $(this).data("template");
       $(this).html($(target).html());
-   });
+   })
 
-
-
-
-
-
+   $({
+      "#page-recent":".nav-icon-set li:nth-child(1)",
+      "#page-list":".nav-icon-set li:nth-child(2)",
+      "#page-user-profile":".nav-icon-set li:nth-child(3)",
+   }[location.hash]).addClass("active");
 });

@@ -139,6 +139,7 @@
 
 <section data-role="page" id="page-list">
       <div data-role="main">
+      	<div data-role="header">Header</div>
          <div class="overscroll floater fill-parent">
 		<div class="venue-list"></div>
 		</div>
@@ -164,20 +165,26 @@
 <!-- VENUE PROFILE PAGE -->
 
 <section data-role="page" id="page-venue-profile">
+	
+	<!-- top header strip -->
 	<header data-role="header">
 		<h1>Venue</h1>
          <ul>
             <a href="#" data-role="button" data-rel="back">Back</a>
             <li class="flex-stretch"></li>
-            <li><a href="#page-location-set-location">Next</a></li>
+           <!--  <a href="#page-location-set-location" data-role="button">Next</a> -->
          </ul>
       </header>
 
-	<div data-role="main" class="display:flex flex-vertical">
-		<div class="venue-profile-top">
 
-			<img src="https://via.placeholder.com/600x600?text=Venue" alt="" style="width:100%;height:100%;object-fit:cover">
+<!-- main body -->
+	<div data-role="main" class="display-flex flex-vertical">
+		
+		<div class="venue-profile-top">
+			<img src="https://via.placeholder.com/600x600?text=Venue" alt="Venue image" style="width:100%;height:100%;object-fit:cover">
 		</div>
+
+
 
 		<div class="venue-profile-middle">
             <ul class="nav">
@@ -186,12 +193,30 @@
             </ul>
          </div>
 
+
+
 		<div class="venue-profile-bottom">
-			<div class="map"></div>
+			 <div class="map"></div>
+            <div class="description"></div>
+			<!-- <div class="floater bottom right">
+                  <a href="#page-location-set-location" class="btn-circle js-chooseanimal" data-setnavigateback="-2">&plus;</a>
+               </div> -->
 		</div>
 	</div>
 	
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -246,7 +271,7 @@
 	<header data-role="header">
 		<h1>VENUE!</h1>
 		<ul>
-			<li><a href="#"  data-rel="back">Back</a></li>
+			<li><a href="#"  data-role="button" data-rel="back">Back</a></li>
 			<li class="flex-stretch"></li>
 			<li><a href="#page-location-set-location" data-role="button">Next</a></li>
 		</ul>

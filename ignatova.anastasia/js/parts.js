@@ -13,14 +13,13 @@ const makeVenueList = templater((o)=>`
          <div class="venue-list-item-name"> ${o.name}</div>
          <div class="venue-list-item-type"><strong>Venue type</strong> ${o.type}</div>
          <div class="venue-list-item-genre"><strong>Genre</strong> ${o.genre}</div>
-         <div class="venue-list-item-hours"><strong>Hours</strong>Hours</div>
+         <div class="venue-list-item-hours"><strong>Hours</strong> Hours</div>
       </div>
    </div>   
    </div>
 	`);
 
-// TO DO:
-// Add database column with operating hours
+
 
 
 
