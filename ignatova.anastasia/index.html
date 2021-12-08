@@ -16,8 +16,9 @@
 <script src="js/functions.js"></script>
 <script src="js/pages.js"></script>
 <script src="js/parts.js"></script>
-<script src="js/signin.js"></script>
 <script src="js/maps.js"></script>
+<script src="js/signin.js"></script>
+
 
 
 <!-- AIzaSyDtzXNnDSTqy1DVlybbEhPZDWLvxc0TUMU -->
@@ -115,13 +116,15 @@
 
 <section data-role="page" id="page-recent">
 	<div data-role="main">
-		<div class="map"></div>
+		<div class="map" style="overflow: hidden;"></div>
 
-		    <!-- Floater marker - red pin
-		     <div class="floater" style="top:20%;left:20%;">
-            <a href="#" data-activate="#recent-add-modal"><img src="img/icons/marker.svg" class="icon" style="width:30px;height:30px"></a>
-         </div> -->
-
+			<div id="recent-drawer" class="modal">
+            <div class="modal-back transparent" data-deactivate="#recent-drawer"></div>
+            	<div class="modal-drawer basin top">
+               <div class="modal-body"></div>
+         </div>
+      </div>
+		    
          <div class="floater bottom right">
             <a href="#page-location-choose-venue" class="btn-circle">&plus;</a>
          </div>
@@ -138,16 +141,18 @@
 <!-- LIST PAGE -->
 
 <section data-role="page" id="page-list">
-      <div data-role="main">
       	<div data-role="header">Header</div>
-         <div class="overscroll floater fill-parent">
-		<div class="venue-list"></div>
-		</div>
 
-         <div class="floater bottom right">
-            <a href="#venue-item-add" class="btn-circle">&plus;</a>
-         </div>
-      </div>
+      	<div data-role="main">
+      		<div>
+         		<div class="overscroll floater fill-parent">
+						<div class="venue-list"></div>
+					</div>
+				</div>
+         	<div class="floater bottom right">
+            	<a href="#page-venue-add" class="btn-circle">&plus;</a>
+         	</div>
+      	</div>
 	
 	<!--  <div class="floater bottom right">
             <a href="venue-item-add" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
@@ -165,17 +170,16 @@
 <!-- VENUE PROFILE PAGE -->
 
 <section data-role="page" id="page-venue-profile">
-	
+
 	<!-- top header strip -->
 	<header data-role="header">
 		<h1>Venue</h1>
          <ul>
             <a href="#" data-role="button" data-rel="back">Back</a>
             <li class="flex-stretch"></li>
-           <!--  <a href="#page-location-set-location" data-role="button">Next</a> -->
+         	<a href="#page-venue-edit" data-role="button">Edit</a>
          </ul>
       </header>
-
 
 <!-- main body -->
 	<div data-role="main" class="display-flex flex-vertical">
@@ -195,6 +199,7 @@
 
 
 
+
 		<div class="venue-profile-bottom">
 			 <div class="map"></div>
             <div class="description"></div>
@@ -208,58 +213,58 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<section data-role="page" id="venue-item-add">
+<section data-role="page" id="page-venue-edit">
 	<header data-role="header">
-		<h1>Add venue</h1>
+		<h1>Edit Venue Details</h1>
          <ul>
             <a href="#" data-role="button" data-rel="back">Cancel</a>
-       
+            <li class="flex-stretch"></li>
+         	<a href="#" data-role="button">Delete</a>
          </ul>
       </header>
 
 	<div data-role="main">
-		<form class="fill-parent display-flex flex-vertical" id="add-venue-form" data-ajax="false">
+		<form class="fill-parent display-flex flex-vertical" id="venue-edit-form" data-ajax="false">
 			<div class="flex-stretch position-relative">
 				<div class="fill-parent overscroll position-absolute padding-md">
-					<div class="form-control">
-						<label for="add-venue-name" class="form-label">Venue name</label>
-						<input type="text" id="add-venue-name" class="form-input" data-role="none" placeholder="Add name">
-					</div>
-
-					<div class="form-control">
-						<label for="add-venue-type" class="form-label">Type of venue</label>
-						<input type="text" id="add-venue-type" class="form-input" data-role="none" placeholder="(Concert hall, club, art space...)">
-					</div>
-
-					<div class="form-control">
-						<label for="add-venue-hours" class="form-label">Operating hours</label>
-						<input type="text" id="add-venue-hours" class="form-input" data-role="none" placeholder="Add hours">
-					</div>
-
-					<div class="flex-none padding-md">
-						<a href="#page-list=" class="form-button">Save</a>
-						<!-- <div class="modal-foot">
-							<button type="submit" class="form-button" data-role="none">Save Venue Information</button> -->
-					</div>
 				</div>
 			</div>
 		</form>
 	</div>
-	
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<section data-role="page" id="page-venue-add">
+	<header data-role="header">
+		<h1>Add new venue</h1>
+      <ul>
+         <a href="#" data-role="button" data-rel="back">Cancel</a>
+      </ul>
+   </header>
+
+	<div data-role="main">
+		<form class="fill-parent display-flex flex-vertical" id="venue-add-form" data-ajax="false">
+			<div class="flex-stretch position-relative">
+				<div class="fill-parent overscroll position-absolute padding-md">
+				</div>
+			</div>
+
+			<div class="flex-none padding-md">
+				<a href="#page-list" class="form-button">Save</a>
+			</div>
+				
+		</form>
+	</div>
 </section>
 
 
@@ -327,16 +332,73 @@
 
 <!-- USER PROFILE PAGE -->
 
-
 <section data-role="page" id="page-user-profile">
+<header data-role="header">
+		<h1>User Profile</h1>
+			<ul>
+            <a href="#" data-role="button" data-rel="back">Back</a>
+            <li class="flex-stretch"></li>
+         	
+         	<a href="#page-user-settings" data-role="button">Settings</a>
+         </ul>
+</header>
 	<div data-role="main" class="overscroll"></div>
-
-	<div>
-	 <button class="form-button js-logout" data-role="none">Log Out</button>
-	</div>
 
 	<footer data-role="footer" data-template="#footer-template"></footer>
 </section>
+
+<!-- USER PROFILE SETTINGS -->
+
+ <section data-role="page" id="page-user-settings">
+      <header data-role="header">
+         <h1>Settings</h1>
+         <ul>
+            <li><a href="#" data-role="button" data-rel="back">Back</a></li>
+         </ul>
+      </header>
+      <div data-role="main" class="overscroll">
+         <ul class="nav-page-links">
+            <li><a href="#page-user-edit">Update User Info</a></li>
+            <li><a href="#page-user-edit-password">Change Password</a></li>
+            <li><a href="#page-user-upload">Change Photo</a></li>
+            <li><a href="#" class="js-logout">Logout</a></li>
+         </ul>
+      </div>
+   </section>
+
+
+
+<!-- USER EDIT PAGE -->
+
+<section data-role="page" id="page-user-edit">
+      <header data-role="header">
+         <h1>Edit User Profile</h1>
+         <ul>
+            <li><a href="#" data-role="button" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-submituseredit">Save</a></li>
+         </ul>
+      </header>
+
+      <div data-role="main">
+         <form class="fill-parent display-flex flex-vertical" id="user-edit-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+               </div>
+            </div>
+         </form>
+      </div>
+   </section>
+
+
+
+
+
+
+
+
+
+
 
 
 

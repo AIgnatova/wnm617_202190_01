@@ -34,14 +34,120 @@ const makeUserProfile = (o) => `
 <div>
    <h2>${o.name}</h2>
    <h3>&commat;${o.username}</h3>
-   <div><a href="#page-user-settings">Settings</a></div>
-</div>`;
+</div>
+`;
 
 
+// 11.17 video 1 hour mark, venue_id related to recent venues in api.php
+const makeVenuePopup = o =>`
+	<div class="display-flex venue-jump data-id="${o.venue_id}">
+	<div class="flex-none  venue-popup-image">
+         <img src="${o.img}" alt="Venue image">
+      </div>
+      <div class="flex-stretch venue-popup-body padding-md">
+         <div class="venue-popup-name"> ${o.name}</div>
+         <div class="venue-popup-type"><strong>Venue type</strong> ${o.type}</div>
+         <div class="venue-popup-genre"><strong>Genre</strong> ${o.genre}</div>
+         <div class="venue-popup-hours"><strong>Hours</strong> Hours</div>
+      </div>
+	</div>
+`;
 
+const FormControlInput = ({namespace,name,displayname,type,placeholder,value}) => `
+<div class="form-control">
+   <label for="${namespace}-${name}" class="form-label">${displayname}</label>
+   <input type="${type}" id="${namespace}-${name}" class="form-input" data-role="none" placeholder="${placeholder}" value="${value}">
+</div>
+`;
 
-// const makeVenueList = templater((o)=>`
-// <div class="venuelist-item">
-// ${o.name}
-// </div>
-// 	`);
+const FormControlTextarea = ({namespace,name,displayname,placeholder,value}) => `
+<div class="form-control">
+   <label for="${namespace}-${name}" class="form-label">${displayname}</label>
+   <textarea id="${namespace}-${name}" class="form-input" data-role="none" placeholder="${placeholder}">${value}</textarea>
+</div>
+`;
+
+const makeVenueFormInputs = (o,namespace) => `
+${FormControlInput({
+   namespace:namespace,
+   name:"name",
+   displayname:"Name",
+   type:"text",
+   placeholder:"Add venue name",
+   value:o.name
+})}
+
+${FormControlInput({
+   namespace:namespace,
+   name:"type",
+   displayname:"Type",
+   type:"text",
+   placeholder:"Add venue type",
+   value:o.type
+})}
+
+${FormControlInput({
+   namespace:namespace,
+   name:"genre",
+   displayname:"Genre",
+   type:"text",
+   placeholder:"Add music genre",
+   value:o.genre
+})}
+
+${FormControlInput({
+   namespace:namespace,
+   name:"hours",
+   displayname:"Hours",
+   type:"text",
+   placeholder:"Add venue hours",
+   value:o.hours
+})}
+
+${FormControlTextarea({
+   namespace:namespace,
+   name:"description",
+   displayname:"Description",
+   type:"text",
+   placeholder:"Add venue description",
+   value:o.description
+})}
+`
+// USER 
+
+const makeUserFormInputs = (o,namespace) => `
+${FormControlInput({
+   namespace:namespace,
+   name:"name",
+   displayname:"Name",
+   type:"text",
+   placeholder:"Update your name",
+   value:o.name
+})}
+
+${FormControlInput({
+   namespace:namespace,
+   name:"username",
+   displayname:"Username",
+   type:"text",
+   placeholder:"Update your username",
+   value:o.username
+})}
+${FormControlInput({
+   namespace:namespace,
+   name:"email",
+   displayname:"Email",
+   type:"text",
+   placeholder:"Update email address",
+   value:o.email
+})}
+
+${FormControlInput({
+   namespace:namespace,
+   name:"phonenumber",
+   displayname:"Phone number",
+   type:"text",
+   placeholder:"Add venue name",
+   value:o.phonenumber
+})}
+`

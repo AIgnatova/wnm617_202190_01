@@ -284,6 +284,9 @@ text-decoration: none;
 	height: 100%;
 }
 
+/*.map .icon {
+	border-radius: 100px;
+}*/
 
 /*Floater*/
 
@@ -302,7 +305,7 @@ text-decoration: none;
 	height: 3rem;
 	line-height: 3rem;
 	text-align: center;
-	font-size: 2.4rem;
+	font-size: 2em;
 	border-radius: 2em;
 	box-shadow: 2px 2px 2px rgba(0,0,0,0.15);
 }
@@ -314,6 +317,7 @@ text-decoration: none;
 
 
 /*MODAL*/
+/* MODAL */
 .modal {
    position: absolute;
    top: 0;
@@ -335,6 +339,9 @@ text-decoration: none;
    width: 100%;
    height: 100%;
    background-color: rgba(0,0,0,0.7);
+}
+.modal-back.transparent {
+   background-color: transparent;
 }
 
 /* Modal Popup */
@@ -361,6 +368,51 @@ text-decoration: none;
 .modal.active .modal-popup {
    transform: translate(-50%,-50%);
 }
+
+
+
+/* Modal Drawer */
+.modal-drawer {
+   position: absolute;
+   display: flex;
+   flex-direction: column;
+   transition: all 0.3s;
+   box-shadow: 0 0 5px rgba(0,0,0,0.15);
+}
+.modal-drawer.left,
+.modal-drawer.right {
+   height: 100%;
+   width: 70vw;
+}
+.modal-drawer.left { left: 0; transform:translateX(-100%); }
+.modal-drawer.right { right: 0; transform:translateX(100%); }
+
+.modal-drawer.top,
+.modal-drawer.bottom {
+   height: 40vh;
+   width: 100%;
+}
+.modal-drawer.top { top: 0; transform:translateY(-100%); }
+.modal-drawer.bottom { bottom: 0; transform:translateY(100%); }
+
+.modal.active .modal-drawer {
+   transform: translate(0);
+}
+
+.modal-drawer.basin {
+   height: 30vh;
+   padding: 1em;
+   box-shadow: none;
+}
+.modal-drawer.basin .modal-body {
+   box-shadow: 0 0 5px rgba(0,0,0,0.15);
+   border-radius: 1em;
+}
+
+.modal-drawer .modal-body {
+   flex: 1 1 100%;
+}
+
 
 .icon {
 	width: 1.5em;
@@ -411,7 +463,7 @@ text-decoration: none;
 }
 .venue-list-item-image img {
     width: 100px;
-    height: 100px;
+    height: 100%;
     object-fit: cover;
     vertical-align: middle;
 }
@@ -450,8 +502,14 @@ text-decoration: none;
 /*USER PROFILE*/
 
 
+/*VENUE POPUP*/
 
-
-
+.venue-popup-image,
+.venue-popup-body {
+   pointer-events: none;
+}
+.venue-popup-image img {
+   max-width: 50px;
+}
 
 

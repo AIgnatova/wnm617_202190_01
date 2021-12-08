@@ -36,16 +36,31 @@ const RecentPage = async() => {
 		return r;
 	},[]);
 
-		
-
-		// looping through an array, to get to one new item (could be an array)
-		// console.log(result)
+// looping through an array, to get to one new item (could be an array)
 
 	let mapEl = await makeMap("#page-recent .map");
 	makeMarkers(mapEl,venues);
 
-}
+let {infoWindow,map,markers} = mapEl.data();
+	markers.forEach((o,i)=>{
+      o.addListener("click",function(){
 
+         /* InfoWindow Example */
+         infoWindow.open(map,o);
+         infoWindow.setContent(makeVenuePopup(venues[i]))
+      
+// Activate Example
+         // $("#recent-drawer")
+         // .addClass("active")
+         // .find(".modal-body")
+         // .html(makeVenuePopup(venues[i]))
+    /* Simple Example */
+         // sessionStorage.venueId = venues[i].venue_id;
+         // $.mobile.navigate("#page-venue-profile")
+
+     })
+  });
+ }
 
 
 // USER PROFILE
@@ -61,6 +76,23 @@ const UserProfilePage = async() => {
 
 
 
+
+const UserEditPage = async() => {
+	let user_result = await resultQuery({
+		type:'user_by_id',
+		params:[sessionStorage.userId]
+	});
+
+	let [user] = user_result;
+	
+$("#user-edit-form .fill-parent").html(
+      makeUserFormInputs(user,"user-edit")
+   );
+} 
+
+
+
+
 // VENUE PROFILE
 const VenueProfilePage = async() => {
 	let venue_result = await resultQuery({
@@ -70,6 +102,7 @@ const VenueProfilePage = async() => {
 
 	let [venue] = venue_result;
 	$(".venue-profile-top img").attr("src", venue.img);
+	$(".venue-profile-bottom .description").html(venue.description);
 
 	let locations_result = await resultQuery({
 		type:'locations_by_venue_id',
@@ -81,10 +114,33 @@ const VenueProfilePage = async() => {
 }
 
 
+const VenueEditPage = async() => {
+	let venue_result = await resultQuery({
+		type:'venue_by_id',
+		params:[sessionStorage.venueId]
+	});
+
+	let [venue] = venue_result;
+	
+$("#venue-edit-form .fill-parent").html(
+      makeVenueFormInputs(venue,"venue-edit")
+   );
+} 
 
 
 
 
+const VenueAddPage = async() => {
+	$("#venue-add-form .fill-parent").html(
+      makeVenueFormInputs({
+         name:'',
+         type:'',
+         genre:'',
+         hours:'',
+         description:''
+      },"venue-add")
+   );
+}
 
 
 

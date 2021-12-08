@@ -107,6 +107,16 @@ case "recent_venue_locations":
 
 
 
+$data = json_decode(file_get_contents("php://input"));
+
+die(
+	json_encode(
+		makeStatement($data),
+		JSON_NUMERIC_CHECK
+	)
+);
+
+// Another way to do the recent animal section
 // 			pass with Javascript
 // 			case "recent_venue_locations":
 // 			return makeQuery($c,"SELECT * 
@@ -118,13 +128,3 @@ case "recent_venue_locations":
 
 //          default: return ["error"=>"No Matched Type"];
 //       }
-
-
-$data = json_decode(file_get_contents("php://input"));
-
-die(
-	json_encode(
-		makeStatement($data),
-		JSON_NUMERIC_CHECK
-	)
-);

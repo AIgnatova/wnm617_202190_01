@@ -88,5 +88,15 @@
     "password": "md5(pass)",
     "img": "https://via.placeholder.com/400/762/fff/?text=user10",
     "date_create": "2021-10-13 03:53:42"
+  },
+  {
+    "id": 11,
+    "name": "Evangeline Moss",
+    "username": "user11",
+    "email": "user11@gmail.com",
+    "password": "md5(pass)",
+    "img": "https://via.placeholder.com/400/762/fff/?text=user11",
+    "date_create": "2021-10-13 03:53:42"
   }
+
 ]

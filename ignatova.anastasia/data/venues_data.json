@@ -548,5 +548,27 @@
     "description": "Velit qui nostrud laboris excepteur ipsum nisi voluptate ex pariatur. Eiusmod incididunt elit ex ut qui consequat. Est laborum ut cupidatat ut. Commodo tempor eiusmod do et tempor ullamco adipisicing amet eu aute consequat ut. Deserunt ea voluptate ut mollit ullamco officia eu fugiat magna et elit quis. Deserunt laboris enim nisi tempor tempor irure aliquip commodo.\r\n",
     "img": "https://via.placeholder.com/400/756/fff/?text=Dognosis",
     "date_create": "2020-10-20 05:01:54"
-  }
+  },
+  {
+    "id":"51",
+    "user_id":"11",
+    "name":"Afterlife",
+    "type":"club",
+    "genre":"techno",
+    "phone":"+1 (990) 537-2679",
+    "description":"Welcome to the Afterlife...\r\n",
+    "img":"https:\/\/via.placeholder.com\/400\/946\/fff\/?text=Afterlife",
+    "date_create":"2021-12-01 21:38:25"
+},
+  {
+    "id":"52",
+    "user_id":"11",
+    "name":"Nikuda",
+    "type":"club",
+    "genre":"house",
+    "phone":"+1 (990) 537-2679",
+    "description":"Searching for mean in Nikuda...\r\n",
+    "img":"https:\/\/via.placeholder.com\/400\/946\/fff\/?text=Nikuda",
+    "date_create":"2021-12-01 21:38:13"}
+
 ]

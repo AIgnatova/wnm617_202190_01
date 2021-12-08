@@ -22,7 +22,10 @@ $(()=>{
          case "page-recent": RecentPage(); break;
          case "page-list": ListPage(); break;
          case "page-user-profile": UserProfilePage(); break;
+         case "page-user-edit": UserEditPage(); break;
          case "page-venue-profile": VenueProfilePage(); break;
+         case "page-venue-edit": VenueEditPage(); break;
+         case "page-venue-add": VenueAddPage(); break;
       }
    })
 
@@ -49,26 +52,28 @@ $(()=>{
 // throw to show custom error
 
    .on("click",".venue-jump",function(e) {
-      if(!$(this).data("id")) throw("No ID on element")
+      if(!$(this).data("id")) throw("No ID on element");
       sessionStorage.venueId = $(this).data("id");
       $.mobile.navigate("#page-venue-profile");
    })
 
+
  .on("click",".venue-profile-middle li",function(e){
-      let id = $(this).index();
+       let id = $(this).index();
       $(this).addClass("active")
          .siblings().removeClass("active");
       $(this).closest(".venue-profile-middle").next().children().eq(id).addClass("active")
          .siblings().removeClass("active");
    })
 
-	  .on("click","[data-activate]",function(e){
+
+
+
+
+.on("click","[data-activate]",function(e){
       let target = $(this).data("activate");
       $(target).addClass("active");
    })
-
-
-
    .on("click","[data-deactivate]",function(e){
       let target = $(this).data("deactivate");
       $(target).removeClass("active");
@@ -79,9 +84,9 @@ $(()=>{
    })
    .on("click","[data-activateone]",function(e){
       let target = $(this).data("activateone");
-      // console.log(target)
       $(target).addClass("active").siblings().removeClass('active');
-   });
+   })
+   ;
 
 
 
