@@ -126,7 +126,7 @@
       </div>
 		    
          <div class="floater bottom right">
-            <a href="#page-location-choose-venue" class="btn-circle">&plus;</a>
+            <a href="#page-location-choose-venue" class="btn-circle" data-setnavigateback="-3">&plus;</a>
          </div>
 	</div>
 
@@ -211,7 +211,7 @@
 	
 </section>
 
-
+<!-- EDIT VENUE -->
 
 <section data-role="page" id="page-venue-edit">
 	<header data-role="header">
@@ -233,16 +233,7 @@
 	</div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
+<!-- ADD VENUE -->
 
 <section data-role="page" id="page-venue-add">
 	<header data-role="header">
@@ -269,8 +260,7 @@
 
 
 
-
-
+<!-- LOCATION CHOOSE VENUE -->
 
 <section data-role="page" id="page-location-choose-venue">
 	<header data-role="header">
@@ -288,16 +278,13 @@
 	
 </section>
 
-
-
-
-
+<!-- SET LOCATION -->
 
 <section data-role="page" id="page-location-set-location">
 	<header data-role="header">
 		<h1>Set location</h1>
 		<ul>
-			<li><a href="#" data-rel="back">Back</a></li>
+			<li><a href="#" data-role="button" data-rel="back">Back</a></li>
 			<li class="flex-stretch"></li>
 			<li><a href="#page-location-description" data-role="button">Next</a></li>
 		</ul>
@@ -309,23 +296,28 @@
 	
 </section>
 
+<!-- SET DESCRIPTION -->
 
 <section data-role="page" id="page-location-description">
-	<header data-role="header">
-		<h1>Add description</h1>
-		<ul>
-			<li><a href="#"  data-rel="back">Back</a></li>
-			<li class="flex-stretch"></li>
-			<li><a href="#page-list" data-role="button">Save</a></li>
-		</ul>
-	</header>
+      <header data-role="header">
+         <h1>Description</h1>
+         <ul>
+            <li><a href="#" data-role="button" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-role="button" class="js-navigate-back">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <form action="" style="padding:1em">
+            <input type="hidden" id="location-navigateback" value="-3">
 
-		<div data-role="main">
-			Description
-		</div>
-</section>
-
-
+            <div class="form-control">
+               <label for="location-description" class="form-label">Describe the venue</label>
+               <textarea id="location-description" class="form-input" data-role="none" placeholder="How was your experience?"></textarea>
+            </div>
+         </form>
+      </div>
+   </section>
 
 
 

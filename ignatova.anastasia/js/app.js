@@ -57,8 +57,17 @@ $(()=>{
       $.mobile.navigate("#page-venue-profile");
    })
 
+  .on("click","[data-setnavigateback]",function(e){
+      $("#location-navigateback").val($(this).data("setnavigateback"))
+   })
+   .on("click",".js-navigate-back",function(e){
+      window.history.go(+$("#location-navigateback").val());
+   })
 
- .on("click",".venue-profile-middle li",function(e){
+
+
+
+   .on("click",".venue-profile-middle li",function(e){
        let id = $(this).index();
       $(this).addClass("active")
          .siblings().removeClass("active");
