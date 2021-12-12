@@ -41,6 +41,7 @@ const RecentPage = async() => {
 	let mapEl = await makeMap("#page-recent .map");
 	makeMarkers(mapEl,venues);
 
+
 let {infoWindow,map,markers} = mapEl.data();
 	markers.forEach((o,i)=>{
       o.addListener("click",function(){
@@ -95,22 +96,22 @@ $("#user-edit-form .fill-parent").html(
 
 // VENUE PROFILE
 const VenueProfilePage = async() => {
-	let venue_result = await resultQuery({
-		type:'venue_by_id',
-		params:[sessionStorage.venueId]
-	});
 
-	let [venue] = venue_result;
-	$(".venue-profile-top img").attr("src", venue.img);
-	$(".venue-profile-bottom .description").html(venue.description);
+let venue_result = await resultQuery({
+      type:'venue_by_id',
+      params:[sessionStorage.venueId]
+   });
 
-	let locations_result = await resultQuery({
-		type:'locations_by_venue_id',
-		params:[sessionStorage.venueId]
-	});
-	let mapEl = await makeMap("#page-venue-profile .map");
-	makeMarkers(mapEl,locations_result);
+   let [venue] = venue_result;
+   $(".venue-profile-top>img").attr("src",venue.img);
+   $(".venue-profile-bottom .description").html(makeVenueProfile(venue));
 
+   let locations_result = await resultQuery({
+      type:'locations_by_venue_id',
+      params:[sessionStorage.venueId]
+   });
+   let mapEl = await makeMap("#page-venue-profile .map");
+   makeMarkers(mapEl,locations_result);
 }
 
 
@@ -127,16 +128,13 @@ $("#venue-edit-form .fill-parent").html(
    );
 } 
 
-
-
-
 const VenueAddPage = async() => {
 	$("#venue-add-form .fill-parent").html(
       makeVenueFormInputs({
          name:'',
          type:'',
          genre:'',
-         hours:'',
+         phone:'',
          description:''
       },"venue-add")
    );

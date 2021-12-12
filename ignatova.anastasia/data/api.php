@@ -59,6 +59,9 @@ try{
 		// case "locations_all":
 		// 	return makeQuery($c, "SELECT * FROM `track_locations`",$p);
 
+// CRUD 
+
+/* READ */
 
 		case "user_by_id":
 			return makeQuery($c, "SELECT id,name,username,email,img,date_create FROM `track_users` WHERE `id`=?",$p);
@@ -96,6 +99,64 @@ case "recent_venue_locations":
                ORDER BY l.venue_id, l.date_create DESC
                ",$p);
 
+/* CREATE */ 
+
+		case "insert_user":
+            $r = makeQuery($c,"SELECT id FROM `track_users` WHERE `username`=? OR `email` = ?",[$p[0],$p[1]]);
+            if(count($r['result'])) return ["error"=>"Username or Email already exists"];
+
+            $r = makeQuery($c,"INSERT INTO
+               `track_users`
+               (`username`, `email`, `password`, `img`, `date_create`)
+               VALUES
+               (?, ?, md5(?), 'http://via.placeholder.com/400/?text=USER', NOW())
+               ",$p,false);
+            return ["id" => $c->lastInsertId()];
+
+
+		case "insert_venue":
+            $r = makeQuery($c,"INSERT INTO
+               `track_venues`
+               (`user_id`, `name`, `type`, `genre`, `phone`, `description`, `img`, `date_create`)
+               VALUES
+               (?, ?, ?, ?, ?, ?, 'http://via.placeholder.com/400/?text=Venue', NOW())
+               ",$p,false);
+            return ["id" => $c->lastInsertId()];
+
+		case "insert_location":
+            $r = makeQuery($c,"INSERT INTO
+               `track_locations`
+               (`venue_id`, `lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
+               VALUES
+               (?, ?, ?, ?, 'http://via.placeholder.com/400/?text=PHOTO', 'http://via.placeholder.com/400/?text=ICON', NOW())
+               ",$p,false);
+            return ["id" => $c->lastInsertId()];
+
+
+/* UPDATE */ 
+
+		case "update_venue":
+            $r = makeQuery($c,"UPDATE
+               `track_venues`
+               SET
+                  `name` = ?,
+                  `type` = ?,
+                  `genre` = ?,
+                  `phone` = ?,
+                  `description` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
+
+            // return $r;
+
+
+
+
+
+
+
+
          default: return ["error"=>"No Matched Type"];
       }
 
@@ -116,7 +177,7 @@ die(
 	)
 );
 
-// Another way to do the recent animal section
+// Another way to do the recent venue section
 // 			pass with Javascript
 // 			case "recent_venue_locations":
 // 			return makeQuery($c,"SELECT * 

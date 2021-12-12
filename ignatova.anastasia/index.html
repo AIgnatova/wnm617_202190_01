@@ -18,6 +18,7 @@
 <script src="js/parts.js"></script>
 <script src="js/maps.js"></script>
 <script src="js/signin.js"></script>
+<script src="js/forms.js"></script>
 
 
 
@@ -171,16 +172,6 @@
 
 <section data-role="page" id="page-venue-profile">
 
-	<!-- top header strip -->
-	<header data-role="header">
-		<h1>Venue</h1>
-         <ul>
-            <a href="#" data-role="button" data-rel="back">Back</a>
-            <li class="flex-stretch"></li>
-         	<a href="#page-venue-edit" data-role="button">Edit</a>
-         </ul>
-      </header>
-
 <!-- main body -->
 	<div data-role="main" class="display-flex flex-vertical">
 		
@@ -190,25 +181,33 @@
 
 
 
-		<div class="venue-profile-middle">
+ <div class="venue-profile-middle">
             <ul class="nav">
-               <li>map</li>
+               <li class="active">map</li>
                <li>description</li>
             </ul>
          </div>
+         <div class="venue-profile-bottom">
+            <div class="section active">
+               <div class="map"></div>
+            </div>
 
-
-
-
-		<div class="venue-profile-bottom">
-			 <div class="map"></div>
-            <div class="description"></div>
-			<!-- <div class="floater bottom right">
-                  <a href="#page-location-set-location" class="btn-circle js-chooseanimal" data-setnavigateback="-2">&plus;</a>
-               </div> -->
-		</div>
-	</div>
+            <div class="section">
+               <div class="description"></div>
+            </div>
+         </div>
+      </div>
+		
 	
+	<!-- top header strip -->
+	<header data-role="header" class="floating-header">
+         <ul>
+            <li><a href="#" data-role="button" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+         	<li><a href="#page-venue-edit" data-role="button">Edit</a></li>
+         </ul>
+      </header>
+
 </section>
 
 <!-- EDIT VENUE -->
@@ -229,6 +228,11 @@
 				<div class="fill-parent overscroll position-absolute padding-md">
 				</div>
 			</div>
+
+				<div class="flex-none padding-md">
+					<button type="submit" class="form-button">Save</button>
+               <!-- <a href="#page-list" class="form-button">Save</a> -->
+         	</div>
 		</form>
 	</div>
 </section>
@@ -250,8 +254,11 @@
 				</div>
 			</div>
 
-			<div class="flex-none padding-md">
-				<a href="#page-list" class="form-button">Save</a>
+				<div class="flex-none padding-md">
+					<button type="submit" class="form-button">Save</button>
+               <!-- <a href="#page-list" class="form-button">Save</a> -->
+         	</div>
+
 			</div>
 				
 		</form>

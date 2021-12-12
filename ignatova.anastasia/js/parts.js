@@ -13,7 +13,7 @@ const makeVenueList = templater((o)=>`
          <div class="venue-list-item-name"> ${o.name}</div>
          <div class="venue-list-item-type"><strong>Venue type</strong> ${o.type}</div>
          <div class="venue-list-item-genre"><strong>Genre</strong> ${o.genre}</div>
-         <div class="venue-list-item-hours"><strong>Hours</strong> Hours</div>
+         <div class="venue-list-item-phone"><strong>Phone Number</strong> <br> ${o.phone}</div>
       </div>
    </div>   
    </div>
@@ -37,6 +37,22 @@ const makeUserProfile = (o) => `
 </div>
 `;
 
+const makeVenueProfile = (o) => `
+<div>
+   <h2>${o.name}</h2>
+   <div><strong>Type of venue</strong> ${o.type}</div>
+   <div><strong>Genre</strong> ${o.genre}</div>
+   <div><strong>Phone Number</strong> ${o.phone}</div>
+   <div><strong>Description</strong> <p>${o.description}</p></div>
+</div>
+`;
+
+
+
+
+
+
+
 
 // 11.17 video 1 hour mark, venue_id related to recent venues in api.php
 const makeVenuePopup = o =>`
@@ -48,7 +64,7 @@ const makeVenuePopup = o =>`
          <div class="venue-popup-name"> ${o.name}</div>
          <div class="venue-popup-type"><strong>Venue type</strong> ${o.type}</div>
          <div class="venue-popup-genre"><strong>Genre</strong> ${o.genre}</div>
-         <div class="venue-popup-hours"><strong>Hours</strong> Hours</div>
+         <div class="venue-list-item-phone"><strong>Phone Number</strong> ${o.phone}</div>
       </div>
 	</div>
 `;
@@ -97,11 +113,11 @@ ${FormControlInput({
 
 ${FormControlInput({
    namespace:namespace,
-   name:"hours",
-   displayname:"Hours",
-   type:"text",
-   placeholder:"Add venue hours",
-   value:o.hours
+   name:"phone",
+   displayname:"Phone Number",
+   type:"number",
+   placeholder:"Add a phone number",
+   value:o.phone
 })}
 
 ${FormControlTextarea({

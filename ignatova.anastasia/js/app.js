@@ -41,6 +41,20 @@ $(()=>{
 	})
 
 
+.on("submit", "#venue-add-form",function(e) {
+      e.preventDefault();
+      venueAddForm();
+      // console.log("sheesh");
+   })
+
+.on("submit", "#venue-edit-form",function(e) {
+      e.preventDefault();
+      venueEditForm();
+      // console.log("sheesh");
+   })
+
+
+
 // ANCHOR CLICKS
    .on("click",".js-logout",function(e) {
       e.preventDefault();
@@ -67,8 +81,8 @@ $(()=>{
 
 
 
-   .on("click",".venue-profile-middle li",function(e){
-       let id = $(this).index();
+    .on("click",".venue-profile-middle li",function(e){
+      let id = $(this).index();
       $(this).addClass("active")
          .siblings().removeClass("active");
       $(this).closest(".venue-profile-middle").next().children().eq(id).addClass("active")
