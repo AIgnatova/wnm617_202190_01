@@ -139,8 +139,8 @@ case "recent_venue_locations":
             $r = makeQuery($c,"UPDATE
                `track_users`
                SET
-                  `username` = ?,
                   `name` = ?,
+                  `username` = ?,
                   `email` = ?
                WHERE `id` = ?
                ",$p,false);

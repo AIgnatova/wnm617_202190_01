@@ -32,8 +32,8 @@ const makeUserProfile = (o) => `
    <img src="${o.img}" alt="">
 </div>
 <div>
-    <h2>${o.username}</h2>
-    <h3>&commat;${o.name}</h3>
+    <h2>${o.name}</h2>
+    <h3>&commat;${o.username}</h3>
    
 </div>
 `;
@@ -133,14 +133,7 @@ ${FormControlTextarea({
 // USER 
 
 const makeUserFormInputs = (o,namespace) => `
-${FormControlInput({
-   namespace:namespace,
-   name:"username",
-   displayname:"Username",
-   type:"text",
-   placeholder:"Update your username",
-   value:o.name
-})}
+
 
 ${FormControlInput({
    namespace:namespace,
@@ -148,10 +141,17 @@ ${FormControlInput({
    displayname:"Name",
    type:"text",
    placeholder:"Update your name",
-   value:o.username
+   value:o.name
 })}
 
-
+${FormControlInput({
+   namespace:namespace,
+   name:"username",
+   displayname:"Username",
+   type:"text",
+   placeholder:"Update your username",
+   value:o.username
+})}
 
 ${FormControlInput({
    namespace:namespace,
