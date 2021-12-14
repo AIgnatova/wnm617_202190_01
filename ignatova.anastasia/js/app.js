@@ -53,6 +53,15 @@ $(()=>{
       // console.log("sheesh");
    })
 
+// FORM ANCHOR CLICKS
+  .on("click",".js-submituseredit",function(e) {
+      e.preventDefault();
+      userEditForm();
+   })
+   .on("click",".js-submituserpassword",function(e) {
+      e.preventDefault();
+      userEditPasswordForm();
+   })
 
 
 // ANCHOR CLICKS

@@ -39,7 +39,36 @@ const venueEditForm = async () => {
 }
 
 
+const userEditForm = async () => {
+   let name = $("#user-edit-name").val();
+   let username = $("#user-edit-username").val();
+   let email = $("#user-edit-email").val();
 
+   let r = await query({
+      type:'update_user',
+      params:[name,username,email,sessionStorage.userId]
+   });
+
+   if(r.error) throw(r.error);
+
+   history.go(-2);
+}
+
+const userEditPasswordForm = async () => {
+   let password = $("#user-password-initial").val();
+   let confirm = $("#user-password-confirm").val();
+
+   if(password!==confirm) throw ("Passwords don't match")
+
+   let r = await query({
+      type:'update_user_password',
+      params:[password,sessionStorage.userId]
+   });
+
+   if(r.error) throw(r.error);
+
+   history.go(-2);
+}
 
 
 

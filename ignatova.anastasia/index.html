@@ -38,6 +38,7 @@
 
 <section data-role="page" id="page-signin">
 	<div data-role="main" class="display-flex flex-vertical">
+
 		<div class="flex-stretch"></div>
 		<form data-ajax="false" class="form signin-form" id="signin-form" style="padding:10px">
 			<div class="form-control">
@@ -357,9 +358,9 @@
       </header>
       <div data-role="main" class="overscroll">
          <ul class="nav-page-links">
-            <li><a href="#page-user-edit">Update User Info</a></li>
-            <li><a href="#page-user-edit-password">Change Password</a></li>
-            <li><a href="#page-user-upload">Change Photo</a></li>
+            <li><a href="#page-user-edit">Update your info</a></li>
+            <li><a href="#page-user-edit-password">Change password</a></li>
+            <li><a href="#page-user-upload">Change photo</a></li>
             <li><a href="#" class="js-logout">Logout</a></li>
          </ul>
       </div>
@@ -375,7 +376,7 @@
          <ul>
             <li><a href="#" data-role="button" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" class="js-submituseredit">Save</a></li>
+            <li><a href="#" data-role="button" class="js-submituseredit">Save</a></li>
          </ul>
       </header>
 
@@ -391,7 +392,33 @@
 
 
 
+<section data-role="page" id="page-user-edit-password">
+      <header data-role="header">
+         <h1>Change Password</h1>
+         <ul>
+            <li><a href="#" data-role="button" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-role="button" class="js-submituseredit">Save</a></li>
+         </ul>
+      </header>
 
+      <div data-role="main">
+         <form class="fill-parent display-flex flex-vertical" id="user-edit-password-form" data-ajax="false">
+            <div class="flex-stretch position-relative">
+               <div class="fill-parent overscroll position-absolute padding-md">
+                  <div class="form-control">
+                     <label for="user-password-initial" class="form-label">New password</label>
+                     <input type="password" id="user-password-initial" class="form-input" data-role="none" placeholder="Enter new password">
+                  </div>
+                  <div class="form-control">
+                     <label for="user-password-confirm" class="form-label">Confirm new password</label>
+                     <input type="password" id="user-password-confirm" class="form-input" data-role="none" placeholder="Confirm">
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+   </section>
 
 
 

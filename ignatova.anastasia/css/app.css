@@ -268,7 +268,7 @@ text-decoration: none;
 
 .ui-mobile .form-label {
 	font-size: 0.8em;
-	color: var(--color-main-medium);
+	color: var(--color-accent-dark);
 	margin: 1rem 0 0;
 	padding: 0.2em;
 }

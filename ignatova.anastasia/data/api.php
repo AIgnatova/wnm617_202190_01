@@ -135,7 +135,30 @@ case "recent_venue_locations":
 
 /* UPDATE */ 
 
-		case "update_venue":
+		case "update_user":
+            $r = makeQuery($c,"UPDATE
+               `track_users`
+               SET
+                  `username` = ?,
+                  `name` = ?,
+                  `email` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
+
+
+case "update_user_password":
+            $r = makeQuery($c,"UPDATE
+               `track_users`
+               SET
+                  `password` = md5(?)
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
+
+
+
+case "update_venue":
             $r = makeQuery($c,"UPDATE
                `track_venues`
                SET
@@ -148,11 +171,15 @@ case "recent_venue_locations":
                ",$p,false);
             return ["result" => "success"];
 
-            // return $r;
 
-
-
-
+case "update_location":
+            $r = makeQuery($c,"UPDATE
+               `track_locations`
+               SET
+                  `description` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
 
 
 
