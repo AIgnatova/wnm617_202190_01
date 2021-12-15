@@ -11,16 +11,16 @@ const makeVenueList = templater((o)=>`
       </div>
       <div class="flex-stretch venue-list-item-body padding-md">
          <div class="venue-list-item-name">${o.name}</div>
-         <div class="venue-list-item-type"><strong>Venue type</strong>${o.type}</div>
-         <div class="venue-list-item-genre"><strong>Genre</strong>${o.genre}</div>
-         <div class="venue-list-item-phone"><strong>Phone Number</strong><br>${o.phone}</div>
+         <div class="venue-list-item-type"><strong>Venue type</strong> · ${o.type}</div>
+         <div class="venue-list-item-genre"><strong>Genre</strong> · ${o.genre}</div>
+         
       </div>
    </div>   
    </div>
 	`);
 
 
-
+// <div class="venue-list-item-phone"><strong>Phone Number</strong><br>${o.phone}</div>
 
 
 
@@ -30,12 +30,13 @@ const makeVenueList = templater((o)=>`
 const makeUserProfile = (o) => `
 <div class="user-profile-image">
    <img src="${o.img}" alt="">
-</div>
-<div>
-    <h2>${o.name}</h2>
-    <h3>&commat;${o.username}</h3>
+   </div>
+    <div class="user-profile-info">
+    <h3>${o.name}</h3>
+    <p>&commat;${o.username}</p>
+    </div>
    
-</div>
+
 `;
 
 const makeVenueProfile = (o) => `
@@ -190,10 +191,11 @@ const makeVenueListSet = (arr,target="#page-list .venue-list") => {
    $(target).html(makeVenueList(arr));
 }
 
+const capitalize = s => s[0].toUpperCase()+s.substr(1);
 
 const filterList = (venues,type) => {
    let a = [...(new Set(venues.map(o=>o[type])))];
-   return templater(o=>o?`<a href="#" data-filter="${type}" data-value="${o}">${o}</a>`:'')(a);
+   return templater(o=>o?`<a href="#" data-filter="${type}" data-value="${o}">${capitalize(o)}</a>`:'')(a);
 }
 
 

@@ -92,6 +92,54 @@ $(()=>{
      else checkFilter(filter,value);
    })
 
+.on("change",".image-picker input",function(e){
+      checkUpload(this.files[0])
+      .then(d=>{
+         console.log(d);
+         $(this).parent().prev().val("uploads/"+d.result);
+         $(this).parent().css({
+            "background-image":`url(uploads/${d.result})`
+         });
+      })
+   })
+   
+
+  .on("click",".js-submituserupload",function(e) {
+      let image = $("#user-upload-filename").val();
+      query({
+         type:"update_user_image",
+         params: [image,sessionStorage.userId]
+      }).then(d=>{
+         if(d.error) throw(d.error);
+
+         history.go(-1);
+      })
+   })
+
+  .on("click",".js-submitvenueupload",function(e) {
+      let image = $("#venue-upload-filename").val();
+      query({
+         type:"update_venue_image",
+         params: [image,sessionStorage.userId]
+      }).then(d=>{
+         if(d.error) throw(d.error);
+
+         history.go(-1);
+      })
+   })
+
+
+  .on("click",".js-venue-delete",function(e){
+      query({
+         type:"delete_venue",
+         params: [sessionStorage.venueId]
+      }).then(d=>{
+         history.go(-2);
+      })
+   })
+
+
+
 
 
    // ON CHANGE

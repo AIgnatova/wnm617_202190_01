@@ -369,10 +369,19 @@ text-decoration: none;
    overflow-x: auto;
    gap: 1em;
 }
+
 .filter-bar a {
+	/*background-color: var(--color-accent-medium);
+	opacity: ;*/
    padding: 0;
+
 }
 
+/*.filter-bar a.active {
+
+   border-bottom: 2px solid var(--color-accent-medium);
+   
+}*/
 
 /*MAP*/
 
@@ -416,18 +425,28 @@ text-decoration: none;
 
 
 .user-profile-image {
+	float: left;
 	display: flex;
 	margin: 0 auto;
  	border-radius: 50%;
     background-color: var(--color-neutral-light);
     object-fit: contain;
-    width: 300px;
-    height: 300px;
+    width: 8em;
+    height: 8em;
     overflow: hidden;
     border: 1px solid var(--color-neutral-medium);
-    margin-bottom: 20px;
+    margin-bottom: .5em;
+    margin-top: .5em;
+    margin-left: .5em;
 }
 
+.user-profile-info {
+	float: left;
+	grid-gap: 20px;
+	padding-left: .5em;
+	text-align: left;
+
+}
 
 
 /*MODAL*/
@@ -576,10 +595,22 @@ text-decoration: none;
     font-weight: normal;
 }
 .venue-list-item-image img {
-    width: 100px;
+    /*width: 100px;
     height: 100%;
     object-fit: cover;
-    vertical-align: middle;
+    vertical-align: middle;*/
+   display: flex;
+	margin: 0 auto;
+ 	border-radius: 50%;
+    background-color: var(--color-neutral-light);
+    object-fit: contain;
+    width: 5em;
+    height: 5em;
+    overflow: hidden;
+    border: 1px solid var(--color-neutral-medium);
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .venue-list-item-description {
 }
@@ -601,8 +632,27 @@ text-decoration: none;
 
 .venue-profile-top {
 	flex: none;
-	height: 40vh;
+	height: 30vh;
+	position: relative;
+
 }
+
+.venue-img {
+	display: flex;
+	margin: 0 auto;
+ 	border-radius: 50%;
+    background-color: var(--color-neutral-light);
+    object-fit: contain;
+    width: 9em;
+    height: 9em;
+    overflow: hidden;
+    border: 1px solid var(--color-neutral-medium);
+    /*margin-bottom: 20px;*/
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+ }
 
 .venue-profile-bottom {
 	flex: 1 1 auto;
@@ -642,6 +692,22 @@ text-decoration: none;
    max-width: 50px;
 }
 
+/*IMAGE UPLOAD CSS*/
+
+.image-picker.replace {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-position: center;
+   background-size: contain;
+   background-repeat: no-repeat;
 
 
 
+
+}
+.image-picker.replace input {
+   display: none;
+}

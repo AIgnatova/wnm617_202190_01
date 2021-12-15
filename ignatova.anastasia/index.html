@@ -203,7 +203,12 @@
 	<div data-role="main" class="display-flex flex-vertical">
 		
 		<div data-role="none" class="venue-profile-top">
-			<img src="https://via.placeholder.com/600x600?text=Venue" alt="Venue image" style="width:100%;height:100%;object-fit:cover">
+			<img class="venue-img" src="https://via.placeholder.com/600x600?text=Venue" alt="Venue image">
+			<div class="floater bottom right">
+               <a href="#page-venue-edit-upload" style="font-size:1.25em">
+                  <img src="img/icons/pencil.svg" class="icon">
+               </a>
+            </div>
 		</div>
 
 
@@ -243,6 +248,27 @@
 
 </section>
 
+<!-- UPLOAD VENUE IMAGE -->
+
+<section data-role="page" id="page-venue-edit-upload">
+      <header data-role="header">
+         <h1>Upload Photo</h1>
+         <ul>
+            <li><a href="#" data-role="button" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" class="js-submitvenueupload" data-role="button" >Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <input type="hidden" id="venue-upload-filename">
+         <label class="image-picker replace">
+            <input type="file" data-role="none">
+         </label>
+      </div>
+   </section>
+
+
+
 <!-- EDIT VENUE -->
 
 <section data-role="page" id="page-venue-edit">
@@ -251,7 +277,7 @@
          <ul>
             <a href="#" data-role="button" data-rel="back">Cancel</a>
             <li class="flex-stretch"></li>
-         	<a href="#" data-role="button">Delete</a>
+         	<a href="#" class="js-venue-delete" data-role="button">Delete Animal?</a>
          </ul>
       </header>
 
@@ -269,6 +295,13 @@
 		</form>
 	</div>
 </section>
+
+
+
+
+
+
+
 
 <!-- ADD VENUE -->
 
@@ -397,6 +430,23 @@
 
 
 
+
+<section data-role="page" id="page-user-upload">
+      <header data-role="header">
+         <h1>Upload Photo</h1>
+         <ul>
+            <li><a href="#" data-role="button" data-rel="back">Back</a></li>
+            <li class="flex-stretch"></li>
+            <li><a href="#" data-role="button" class="js-submituserupload">Save</a></li>
+         </ul>
+      </header>
+      <div data-role="main">
+         <input type="hidden" id="user-upload-filename">
+         <label class="image-picker replace">
+            <input type="file" data-role="none">
+         </label>
+      </div>
+   </section>
 
 
 <!-- USER PROFILE SETTINGS -->
