@@ -26,8 +26,14 @@ $(()=>{
          case "page-venue-profile": VenueProfilePage(); break;
          case "page-venue-edit": VenueEditPage(); break;
          case "page-venue-add": VenueAddPage(); break;
+         case "page-location-choose-venue": LocationChooseVenuePage(); break;
+         case "page-location-set-location": LocationSetLocationPage(); break;
+
+         
       }
    })
+
+
 
 	// FORM SUBMITS
 	.on("submit", "#signin-form",function(e) {
@@ -53,6 +59,10 @@ $(()=>{
       // console.log("sheesh");
    })
 
+
+
+
+
 // FORM ANCHOR CLICKS
   .on("click",".js-submituseredit",function(e) {
       e.preventDefault();
@@ -62,6 +72,23 @@ $(()=>{
       e.preventDefault();
       userEditPasswordForm();
    })
+
+    .on("click",".js-submitlocationform",function(e){
+      e.preventDefault();
+      locationAddForm();
+   })
+
+
+
+
+
+   // ON CHANGE
+
+   .on("change","#location-venue-choice-select",function(e){
+      $("#location-venue-choice").val(this.value)
+   })
+
+
 
 
 // ANCHOR CLICKS
@@ -86,6 +113,16 @@ $(()=>{
    .on("click",".js-navigate-back",function(e){
       window.history.go(+$("#location-navigateback").val());
    })
+
+    .on("click",".js-choosevenue",function(e){
+      $("#location-venue-choice").val(sessionStorage.venueId);
+   })
+
+
+
+
+
+
 
 
 

@@ -176,28 +176,34 @@
 <!-- main body -->
 	<div data-role="main" class="display-flex flex-vertical">
 		
-		<div class="venue-profile-top">
+		<div data-role="none" class="venue-profile-top">
 			<img src="https://via.placeholder.com/600x600?text=Venue" alt="Venue image" style="width:100%;height:100%;object-fit:cover">
 		</div>
 
 
 
- <div class="venue-profile-middle">
+ 		<div data-role="none" class="venue-profile-middle">
             <ul class="nav">
                <li class="active">map</li>
                <li>description</li>
             </ul>
-         </div>
-         <div class="venue-profile-bottom">
-            <div class="section active">
-               <div class="map"></div>
-            </div>
-
-            <div class="section">
-               <div class="description"></div>
-            </div>
-         </div>
       </div>
+
+
+      <div data-role="none" class="venue-profile-bottom">
+         <div class="section active">
+               <div class="map"></div>
+               <div class="floater bottom right">
+            	<a href="#page-location-set-location" class="btn-circle js-choosevenue" data-setnavigateback="-2">&plus;</a>
+      			</div>
+         </div>
+
+         <div class="section">
+            <div class="description"></div>
+         </div>
+
+      </div>
+   </div>
 		
 	
 	<!-- top header strip -->
@@ -280,9 +286,17 @@
 		</ul>
 	</header>
 
-	<div data-role="main">
-		Venue Info
-	</div>
+
+
+	<div data-role="main" style="padding:1em">
+
+         <input type="hidden" id="location-venue-choice" data-role="none">
+         <div>
+            <a href="#page-venue-add">Add new venue</a>
+         </div>
+         <p>Or use an existing option</p>
+         <div class="form-select location-venue-choice-select"></div>
+      </div>
 	
 </section>
 
@@ -299,10 +313,15 @@
 	</header>
 
 		<div data-role="main">
-			Location...
-		</div>
+         <input type="hidden" id="location-lat">
+         <input type="hidden" id="location-lng">
+         <div class="map"></div>
+      </div>
 	
 </section>
+
+
+
 
 <!-- SET DESCRIPTION -->
 
@@ -312,7 +331,7 @@
          <ul>
             <li><a href="#" data-role="button" data-rel="back">Back</a></li>
             <li class="flex-stretch"></li>
-            <li><a href="#" data-role="button" class="js-navigate-back">Save</a></li>
+            <li><a href="#" data-role="button" class="js-submitlocationform">Save</a></li>
          </ul>
       </header>
       <div data-role="main">
@@ -326,6 +345,9 @@
          </form>
       </div>
    </section>
+
+
+
 
 
 

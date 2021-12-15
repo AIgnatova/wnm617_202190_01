@@ -18,6 +18,8 @@ const venueAddForm = async () => {
    // $.mobile.navigate("#page-venue-profile")
 }
 
+// EDIT VENUE 
+
 const venueEditForm = async () => {
    let name = $("#venue-edit-name").val();
    let type = $("#venue-edit-type").val();
@@ -38,6 +40,7 @@ const venueEditForm = async () => {
    // $.mobile.navigate("#page-venue-profile")
 }
 
+// EDIT USER
 
 const userEditForm = async () => {
    let name = $("#user-edit-name").val();
@@ -53,6 +56,8 @@ const userEditForm = async () => {
 
    history.go(-2);
 }
+
+// PASSWORD
 
 const userEditPasswordForm = async () => {
    let password = $("#user-password-initial").val();
@@ -71,6 +76,23 @@ const userEditPasswordForm = async () => {
 }
 
 
+// LOCATION
+
+const locationAddForm = async () => {
+   let venue = $("#location-venue-choice").val();
+   let lat = $("#location-lat").val();
+   let lng = $("#location-lng").val();
+   let description = $("#location-description").val();
+
+   let r = await query({
+      type:'insert_location',
+      params:[venue,lat,lng,description]
+   });
+
+   if(r.error) throw(r.error);
+
+   history.go($("#location-navigateback").val());
+}
 
 
 

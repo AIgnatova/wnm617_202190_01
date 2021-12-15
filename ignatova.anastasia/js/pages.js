@@ -140,6 +140,33 @@ const VenueAddPage = async() => {
    );
 }
 
+const LocationSetLocationPage = async() => {
+   let mapEl = await makeMap("#page-location-set-location .map");
+   makeMarkers(mapEl,[]);
+
+   mapEl.data("map").addListener("click",function(e){
+      $("#location-lat").val(e.latLng.lat())
+      $("#location-lng").val(e.latLng.lng())
+      makeMarkers(mapEl,[e.latLng]);
+   })
+}
+
+const LocationChooseVenuePage = async() => {
+   let result = await resultQuery({
+      type:'venues_by_user_id',
+      params:[sessionStorage.userId]
+   });
+
+console.log(result)
+
+   $(".location-venue-choice-select").html(
+      makeVenueChoiceSelect({
+         venues:result,
+         name:'location-venue-choice-select'
+      })
+   );
+   $("#location-venue-choice").val(result[0].id);
+}
 
 
 

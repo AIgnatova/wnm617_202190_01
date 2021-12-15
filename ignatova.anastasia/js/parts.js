@@ -170,4 +170,23 @@ ${FormControlInput({
    placeholder:"Add phone number",
    value:o.phonenumber
 })}
-`
+`;
+
+
+
+
+const makeVenueChoiceSelect = ({venues,name,chosen=0}) => `
+<select id="${name}">
+   ${templater(o=>`
+      <option value="${o.id}" ${o.id===chosen?'selected':''}>${o.name}</option>
+   `)(venues)}
+</select>
+`;
+
+
+
+
+
+
+
+

@@ -1,20 +1,20 @@
 :root {
 
-	--color-neutral-light: #f1aebe;
+	--color-neutral-light: #FAF2F0;
 	--color-neutral-medium: #ffc1a0;
 	--color-neutral-dark: #444;
 
 /*neon salad green*/
-	--color-main-light: ##8DF27E;
+	--color-main-light: #8DF27E;
 /*gray*/
-	--color-main-medium: ##8C8C8C; 
+	--color-main-medium: #8C8C8C; 
 /*almost black*/
 	--color-main-dark: #363636;
 
 /*neon green*/
 	--color-accent-dark: #11D979;
 /*neon teal green*/
-	--color-accent-medium: #00D6BC;
+	--color-accent-medium: #24C9A3;
 /*neon super light green*/
 	--color-accent-light: #72FFCD;
 
@@ -38,7 +38,7 @@
 
 body {
 	font-family: var(--font-sans);
-	background-color: var(--color-main-light);
+	background-color: var(--color-neutral-light);
 	color: var(--color-main-dark);
 }
 
@@ -166,9 +166,17 @@ a {
    display: flex;
 }
 
+.venue-profile-middle li.active {
+   background-color: var(--color-accent-medium);
+}
+
+.venue-profile-middle li {
+	border-radius: 10em;
+}
+
 .nav li {
    flex: 1 1 auto;
-   padding: 0 1em;
+   padding: 0 0.2em;
    text-align: center;
    line-height: var(--header-height);
 }
@@ -274,6 +282,29 @@ text-decoration: none;
 }
 
 
+
+
+.form-select select {
+    background-color: var(--color-neutral-light);
+    border-width: 0;
+    padding: 0.5em 1em;
+    font: inherit;
+    border-radius: 4px;
+    width: 100%;
+    -webkit-appearance: none;
+}
+.form-select {
+   position: relative;
+}
+.form-select::after {
+   content: '▼';
+   position: absolute;
+   right: 0.5em;
+   top: 50%;
+   transform: translateY(-50%);
+   font-size: 0.8em;
+   color: var(--color-main-medium);
+}
 
 
 .map {
@@ -496,9 +527,7 @@ text-decoration: none;
 .venue-profile-bottom .section.active {
    display: block;
 }
-.venue-profile-middle li.active {
-   background-color: var(--color-main-light);
-}
+
 
 
 .floating-header {
