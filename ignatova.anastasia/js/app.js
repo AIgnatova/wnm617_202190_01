@@ -59,6 +59,14 @@ $(()=>{
       // console.log("sheesh");
    })
 
+ .on("submit", "#list-search-form", function(e) {
+      e.preventDefault();
+      let s = $(this).find("input").val();
+      checkSearchForm(s);
+   })
+
+
+
 
 
 
@@ -78,7 +86,11 @@ $(()=>{
       locationAddForm();
    })
 
-
+   .on("click","[data-filter]",function(e){
+      let {filter,value} = $(this).data();
+      if(value=="") ListPage(); 
+     else checkFilter(filter,value);
+   })
 
 
 

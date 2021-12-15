@@ -12,16 +12,13 @@ const resultQuery = async (options) => {
 
 // LIST PAGE
 const ListPage = async() => {
-	let result = await resultQuery({
+	let venues = await resultQuery({
 		type:'venues_by_user_id',
 		params:[sessionStorage.userId]
    	});
 
-	// console.log(result);
-
-	$("#page-list .venue-list").html(makeVenueList(result));
+	makeVenueListSet(venues);
 }
-
 
 // MAP PAGE
 const RecentPage = async() => {

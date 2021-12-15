@@ -10,10 +10,10 @@ const makeVenueList = templater((o)=>`
          <img src="${o.img}" alt="Venue image">
       </div>
       <div class="flex-stretch venue-list-item-body padding-md">
-         <div class="venue-list-item-name"> ${o.name}</div>
-         <div class="venue-list-item-type"><strong>Venue type</strong> ${o.type}</div>
-         <div class="venue-list-item-genre"><strong>Genre</strong> ${o.genre}</div>
-         <div class="venue-list-item-phone"><strong>Phone Number</strong> <br> ${o.phone}</div>
+         <div class="venue-list-item-name">${o.name}</div>
+         <div class="venue-list-item-type"><strong>Venue type</strong>${o.type}</div>
+         <div class="venue-list-item-genre"><strong>Genre</strong>${o.genre}</div>
+         <div class="venue-list-item-phone"><strong>Phone Number</strong><br>${o.phone}</div>
       </div>
    </div>   
    </div>
@@ -185,8 +185,26 @@ const makeVenueChoiceSelect = ({venues,name,chosen=0}) => `
 
 
 
+const makeVenueListSet = (arr,target="#page-list .venue-list") => {
+   $(".filter-bar").html(makeFilterList(arr));
+   $(target).html(makeVenueList(arr));
+}
+
+
+const filterList = (venues,type) => {
+   let a = [...(new Set(venues.map(o=>o[type])))];
+   return templater(o=>o?`<a href="#" data-filter="${type}" data-value="${o}">${o}</a>`:'')(a);
+}
 
 
 
 
-
+const makeFilterList = (venues) => {
+   return `
+   <a href="#" data-filter="type" data-value="">All</a>
+   <div>|</div>
+   ${filterList(venues,'type')}
+   <div>|</div>
+   ${filterList(venues,'genre')}
+   `;
+}

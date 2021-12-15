@@ -96,6 +96,41 @@ const locationAddForm = async () => {
 
 
 
+const checkSearchForm = async (s) => {
+   let venues = await query({
+      type:'search_venues',
+      params:[s,sessionStorage.userId]
+   });
+
+   if(venues.error) throw(venues.error);
+
+   makeVenueListSet(venues.result);
+}
+
+const checkFilter = async (f,v) => {
+   let venues = await query({
+      type:'filter_venues',
+      params:[f,v,sessionStorage.userId]
+   });
+
+   if(venues.error) throw(venues.error);
+
+   makeVenueListSet(venues.result);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

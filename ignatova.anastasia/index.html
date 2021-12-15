@@ -21,6 +21,9 @@
 <script src="js/forms.js"></script>
 
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <!-- AIzaSyDtzXNnDSTqy1DVlybbEhPZDWLvxc0TUMU -->
 <!-- For Maps: Google Cloud Platform - Console page -->
@@ -143,7 +146,35 @@
 <!-- LIST PAGE -->
 
 <section data-role="page" id="page-list">
-      	<div data-role="header">Header</div>
+	
+      <div data-role="main" class="display-flex flex-vertical">
+
+         <div class="search-bar header flex-none">
+            <form data-ajax="false" id="list-search-form" class="hotdog white">
+
+
+               <input type="search" data-role="none" placeholder="Search for a venue">
+            </form>
+         </div>
+
+         <div class="filter-bar header flex-none"></div>
+
+         <div class="position-relative flex-stretch">
+            <div class="overscroll floater fill-parent">
+               <div class="venue-list"></div>
+            </div>
+         </div>
+
+
+         <div class="floater bottom right">
+            <a href="#page-venue-add" class="btn-circle">&plus;</a>
+         </div>
+      </div>
+      <footer data-role="footer" data-template="#footer-template"></footer>
+   </section>
+
+<!-- <section data-role="page" id="page-list">
+      	<div data-role="header"><h2>List of Venues</h2></div>
 
       	<div data-role="main">
       		<div>
@@ -155,14 +186,9 @@
             	<a href="#page-venue-add" class="btn-circle">&plus;</a>
          	</div>
       	</div>
-	
-	<!--  <div class="floater bottom right">
-            <a href="venue-item-add" class="btn-circle" data-activate="#list-add-modal">&plus;</a>
-         </div>
-      </div> -->
 
 	<footer data-role="footer" data-template="#footer-template"></footer>
-</section>
+</section> -->
 
 
 
@@ -368,6 +394,10 @@
 
 	<footer data-role="footer" data-template="#footer-template"></footer>
 </section>
+
+
+
+
 
 <!-- USER PROFILE SETTINGS -->
 

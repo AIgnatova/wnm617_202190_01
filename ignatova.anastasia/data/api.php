@@ -80,7 +80,7 @@ try{
 		case "check_signin":
 			return makeQuery($c, "SELECT id FROM `track_users` WHERE `username`=? AND `password`=md5(?)",$p);
 
-case "recent_venue_locations":
+      case "recent_venue_locations":
             return makeQuery($c,"SELECT *
                FROM `track_venues` a
                JOIN (
@@ -98,6 +98,27 @@ case "recent_venue_locations":
                WHERE a.user_id = ?
                ORDER BY l.venue_id, l.date_create DESC
                ",$p);
+
+
+      case "search_venues":
+            $p = ["%$p[0]%",$p[1]];
+            return makeQuery($c,"SELECT *
+               FROM `track_venues`
+               WHERE
+                  `name` LIKE ? AND
+                  `user_id` = ?
+               ",$p);
+
+
+       case "filter_venues":
+            return makeQuery($c,"SELECT *
+               FROM `track_venues`
+               WHERE
+                  `$p[0]` = ? AND
+                  `user_id` = ?
+               ",[$p[1],$p[2]]);
+
+
 
 /* CREATE */ 
 
