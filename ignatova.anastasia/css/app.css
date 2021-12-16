@@ -16,7 +16,7 @@
 /*neon teal green*/
 	--color-accent-medium: #24C9A3;
 /*neon super light green*/
-	--color-accent-light: #72FFCD;
+	--color-accent-light: #96D3C1;
 
 	--header-height: 3rem;
 
@@ -181,21 +181,61 @@ background-color: var(--color-accent-medium);
    display: flex;
 }
 
+
+
+
+
+/*PROFILE PAGE EDITS*/
+
 .venue-profile-middle li.active {
    background-color: var(--color-accent-medium);
 }
 
 .venue-profile-middle li {
-	border-radius: 10em;
+	border-radius: 5px;
 }
 
 .nav li {
    flex: 1 1 auto;
-   padding: 0 0.2em;
+
    text-align: center;
    line-height: var(--header-height);
 }
 
+.nav-page-links li {
+	list-style-type:  none;
+	text-decoration: none;
+	width: 90%;
+	display: inline-block;
+	border-width: 0;
+	background-color: var(--color-accent-light);
+	color: var(--color-neutral-dark);
+margin-bottom: .7em;
+	padding: 0.6em 1em;
+	border-radius: 1em;
+	outline: 0;
+	font: inherit;
+	text-align: center;
+	cursor: pointer;
+	text-decoration: none;
+	-webkit-appearance: none;
+
+}
+
+.user-profile-info p {
+	padding-left: 10px;
+	font-size: 1.2em;
+	line-height: .1em;
+}
+
+.user-profile-info.form-label {
+	color: gray;
+}
+
+.user-profile-info h3 {
+	font-size: 1.5em;
+	line-height: .3em;
+}
 
 
 
@@ -238,10 +278,6 @@ font: inherit;
 }
 
 
-/*.form-button.js-logout {
-	background-color: var(--color-main-medium);
-}
-*/
 .form-input-signup {
 width: 95%;
 display: inline-block;
@@ -254,6 +290,10 @@ outline: 0;
 font: inherit;
 }
 
+.js-logout.form-button{
+
+width: 90%;
+}
 .form .form-button,
 .form-button .js-logout {
 width: 100%;
@@ -547,6 +587,16 @@ text-decoration: none;
 }
 
 
+
+
+
+
+
+
+
+
+
+
 .icon {
 	width: 1.5em;
 	height: 1.5em;
@@ -574,6 +624,15 @@ text-decoration: none;
 	line-height: 1rem;
 	font-size: 0.8rem;
 }
+
+
+
+
+
+
+
+
+
 
 
 /*VENUE LIST*/
@@ -623,9 +682,16 @@ text-decoration: none;
 }
 
 
+.add-venue-location {
+	text-align: center;
+}
 
+.form-select #location-venue-choice-select {
+	border: 1px solid var(--color-accent-medium);
+	background-color: var(--white);
+	border-radius: 100px;
 
-
+}
 
 
 /* VENUE PROFILE */
@@ -677,10 +743,6 @@ text-decoration: none;
    box-shadow: none;
 }
 
-/*USER PROFILE*/
-
-
-
 
 /*VENUE POPUP*/
 
@@ -708,6 +770,38 @@ text-decoration: none;
 
 
 }
+
+.signin-logo {
+	width: 25em;
+	height: 25em;
+	margin: 0 auto;
+}
+
+.signin-logo img {
+
+}
+
 .image-picker.replace input {
    display: none;
+}
+
+.thumbnail {
+  position:relative;
+  display:inline-block;
+  width:6em;
+  height:6em;
+  border-radius:0.6em;
+  border:0.25em solid white;
+  vertical-align:middle;
+  box-shadow:0 0.15em 0.35em 0.1em rgba(0,0,0,0.2);
+  
+  background-position:center;
+  background-size:cover;
+}
+.thumbnail input {
+   display: none;
+}
+
+.image-picker.thumbnail {
+	margin: 0 auto;
 }

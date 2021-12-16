@@ -6,7 +6,7 @@ const  makeMap = async (target="", center={ lat:37.768088, lng:-122.441741 }) =>
 		mapEl.data({
 			"map" : new google.maps.Map(mapEl[0], {
     			center:center,
-    			zoom: 12,
+    			zoom: 13,
     			disableDefaultUI:true,
     			styles:mapStyles
 	

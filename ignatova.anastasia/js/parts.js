@@ -33,7 +33,10 @@ const makeUserProfile = (o) => `
    </div>
     <div class="user-profile-info">
     <h3>${o.name}</h3>
+    <label for="user-profile-username" class="form-label">Username</label>
     <p>&commat;${o.username}</p>
+    <label for="user-profile-email" class="form-label">Email</label>
+    <p>${o.email}</p>
     </div>
    
 

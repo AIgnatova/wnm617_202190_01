@@ -43,6 +43,8 @@
 	<div data-role="main" class="display-flex flex-vertical">
 
 		<div class="flex-stretch"></div>
+		<div class="signin-logo"><img src="img/icons/logo.svg"></div>
+		<div class="flex-stretch"></div>
 		<form data-ajax="false" class="form signin-form" id="signin-form" style="padding:10px">
 			<div class="form-control">
 				<input class="form-input" type="text" data-role="none" id="signin-username" data-role="none" placeholder="Username">
@@ -72,36 +74,39 @@
 		<div class="flex-stretch"></div>
 		<form data-ajax="false" class="form signin-form" id="signup-form" style="padding:10px">
 
+			<!-- <div class="form-control">
+				<label for="signup-full-name" class="form-label">Full name</label>
+				<input class="form-input-signup" type="text" id="signup-name" data-role="none" placeholder="Full Name">
+						</div> -->
+
+
 				<div class="form-control">
+				<label for="signup-username" class="form-label">Username</label>
 				<input class="form-input-signup" type="text" id="signup-username" data-role="none" placeholder="Username">
 							</div>
 
 
-				<div class="form-control">
-				<input class="form-input-signup" type="text" id="signup-name" data-role="none" placeholder="Full Name">
-			</div>
-
 
 			<div class="form-control">
-				<!-- <label for="signup-email" class="form-label">Email Address</label> -->
+				<label for="signup-email" class="form-label">Email Address</label>
 				<input class="form-input-signup" type="text" id="signup-email" data-role="none" placeholder="Email Address">
 			</div>
 
 
 			<div class="form-control">
-				<!-- <label for="signup-password" class="form-label">New Password</label> -->
+				<label for="signup-password" class="form-label">New Password</label>
 				<input class="form-input-signup" type="password" id="signup-password" data-role="none" placeholder="Password">
 			</div>
 
 
 			<div class="form-control">
-				<!-- <label for="signup-password2" class="form-label">Confirm Passrord</label> -->
+				<label for="signup-password2" class="form-label">Confirm Passrord</label>
 				<input class="form-input-signup" type="password" id="signup-password2" data-role="none" placeholder="Confirm Password">
 			</div>
 
 
 			<div>
-				<input type="submit" value="Sign Up" data-role="none" class="form-button">
+				<input type="submit" value="Continue" data-role="none" class="form-button">
 			</div>
 
 
@@ -116,6 +121,27 @@
 </section>
 
 
+  <section data-role="page" id="page-signup2">
+      <div data-role="main" class="display-flex flex-vertical">
+         <div class="flex-stretch"></div>
+         <form data-ajax="false" class="form signin-form" id="signup-form2" style="padding:10px">
+            <div class="form-control">
+               <label for="signup-name" class="form-label">Name</label>
+               <input class="form-input" type="text" id="signup-name" data-role="none" placeholder="Your Name">
+            </div>
+            <div class="form-control">
+               <input type="hidden" id="signup-image-name">
+               <label class="image-picker thumbnail">
+                  <input type="file" data-role="none">
+               </label>
+            </div>
+            <div class="form-control">
+               <input type="submit" value="Complete Sign Up" class="form-button" data-role="none">
+            </div>
+         </form>
+         <div class="flex-stretch"></div>
+      </div>
+   </section>
 
 <!-- MAP PAGE -->
 
@@ -172,25 +198,6 @@
       </div>
       <footer data-role="footer" data-template="#footer-template"></footer>
    </section>
-
-<!-- <section data-role="page" id="page-list">
-      	<div data-role="header"><h2>List of Venues</h2></div>
-
-      	<div data-role="main">
-      		<div>
-         		<div class="overscroll floater fill-parent">
-						<div class="venue-list"></div>
-					</div>
-				</div>
-         	<div class="floater bottom right">
-            	<a href="#page-venue-add" class="btn-circle">&plus;</a>
-         	</div>
-      	</div>
-
-	<footer data-role="footer" data-template="#footer-template"></footer>
-</section> -->
-
-
 
 
 
@@ -261,10 +268,14 @@
       </header>
       <div data-role="main">
          <input type="hidden" id="venue-upload-filename">
-         <label class="image-picker replace">
+         <label class="image-picker replace thumbnail">
             <input type="file" data-role="none">
          </label>
       </div>
+       <div class="flex-none padding-md">
+       			<a href="#" class="form-button js-submitvenueupload" data-role="button" >Add photo</a>
+
+         	</div>
    </section>
 
 
@@ -347,14 +358,15 @@
 
 
 
-	<div data-role="main" style="padding:1em">
+	<div data-role="main" class="add-venue-location" style="padding:1em">
 
          <input type="hidden" id="location-venue-choice" data-role="none">
          <div>
-            <a href="#page-venue-add">Add new venue</a>
+         	<p>Select an existing venue</p>
+           <div class="form-select drop-down location-venue-choice-select"></div> 
          </div>
-         <p>Or use an existing option</p>
-         <div class="form-select location-venue-choice-select"></div>
+         <p>or</p>
+         <a href="#page-venue-add">Create a new venue</a>
       </div>
 	
 </section>
@@ -367,7 +379,7 @@
 		<ul>
 			<li><a href="#" data-role="button" data-rel="back">Back</a></li>
 			<li class="flex-stretch"></li>
-			<li><a href="#page-location-description" data-role="button">Next</a></li>
+			<li><a href="#page-venue-profile" data-role="button">Save</a></li>
 		</ul>
 	</header>
 
@@ -463,9 +475,10 @@
             <li><a href="#page-user-edit">Update your info</a></li>
             <li><a href="#page-user-edit-password">Change password</a></li>
             <li><a href="#page-user-upload">Change photo</a></li>
-            <li><a href="#" class="js-logout">Logout</a></li>
          </ul>
       </div>
+      <div class="flex-stretch"></div>
+         <li><a href="#" data-role="button" class="js-logout form-button">Logout</a></li>
    </section>
 
 
@@ -525,46 +538,22 @@
 
 
 
-
-
-
-
-
-
-
-
 <script type="text/template" id="footer-template">
    <ul class="nav-icon-set">
       <li><a href="#page-recent" data-activateone=".nav-icon-set li:nth-child(1)">
-         <span class="nav-icon"><img class="icon" src="img/icons/map.svg"/>
-         </span>
-        <!--  <span class="nav-icon-label">Recent</span> -->
+         <span class="nav-icon"><img class="icon" src="img/icons/map.svg"></span>
+         <span class="nav-icon-label">Recent</span>
       </a></li>
       <li><a href="#page-list" data-activateone=".nav-icon-set li:nth-child(2)">
-         <span class="nav-icon"><img class="icon" 
-         src="img/icons/list.svg"> 
-         </span>
-         <!-- <span class="nav-icon-label">List</span> -->
+         <span class="nav-icon"><img class="icon" src="img/icons/list.svg"></span>
+         <span class="nav-icon-label">List</span>
       </a></li>
       <li><a href="#page-user-profile" data-activateone=".nav-icon-set li:nth-child(3)">
          <span class="nav-icon"><img class="icon" src="img/icons/user.svg"></span>
-        <!--  <span class="nav-icon-label">Profile</span> -->
+         <span class="nav-icon-label">Profile</span>
       </a></li>
    </ul>
-</script>
-
-<!--   <script type="text/template" id="venue-item-template">
-   <a href="#page-venue-profile" class="display-flex">
-      <div class="flex-none venue-list-item-image">
-         <img src="https://via.placeholder.com/400x400?text=Venue" alt="Image Placeholder">
-      </div>
-      <div class="flex-stretch venuelist-item-body padding-md">
-         <div class="venue-list-item-name">Venue name</div>
-         <div class="venue-list-item-type"><strong>Venue type </strong>Venue</div>
-         <div class="venue-list-item-hours"><strong>Hours </strong>Venue hours </div>
-      </div>
-   </a>
-   </script> -->
+   </script>
 
 </body>
 </html>

@@ -1,4 +1,41 @@
 
+const checkSignup = async () => {
+   let username = $("#signup-username").val();
+   let email = $("#signup-email").val();
+   let password = $("#signup-password").val();
+   let confirm = $("#signup-password2").val();
+
+   if(password!=confirm)
+      throw("Passwords don't match, please try again.");
+
+   let r = await query({
+      type:'insert_user',
+      params:[username,email,password]
+   });
+
+   if(r.error) throw(r.error);
+
+   sessionStorage.userId = r.id;
+
+   $.mobile.navigate("#page-signup2");
+}
+
+const checkSignup2 = async () => {
+   let name = $("#signup-name").val();
+   let image = $("#signup-image-name").val();
+
+   let r = await query({
+      type:'update_user_onboard',
+      params:[name,image,sessionStorage.userId]
+   });
+
+   if(r.error) throw(r.error);
+
+   $.mobile.navigate("#page-list");
+}
+
+
+
 const venueAddForm = async () => {
    let name = $("#venue-add-name").val();
    let type = $("#venue-add-type").val();
@@ -39,6 +76,7 @@ const venueEditForm = async () => {
    
    // $.mobile.navigate("#page-venue-profile")
 }
+
 
 // EDIT USER
 

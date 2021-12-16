@@ -175,6 +175,17 @@ try{
 
 /* UPDATE */ 
 
+ case "update_user_onboard":
+            $r = makeQuery($c,"UPDATE
+               `track_users`
+               SET
+                  `name` = ?,
+                  `img` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return $r;
+
+
 		case "update_user":
             $r = makeQuery($c,"UPDATE
                `track_users`
@@ -185,6 +196,7 @@ try{
                WHERE `id` = ?
                ",$p,false);
             return ["result" => "success"];
+
 
 
 case "update_user_password":
@@ -201,12 +213,20 @@ case "update_user_password":
  case "update_user_image":
             $r = makeQuery($c,"UPDATE
                `track_users`
-               SET `img` = ?
+               SET 
+                  `img` = ?
                WHERE `id` = ?
                ",$p,false);
             return $r;
 
-
+case "update_venue_image":
+            $r = makeQuery($c,"UPDATE
+               `track_venues`
+               SET 
+               `img` = ?
+               WHERE `id` = ?
+               ",$p,false);
+            return ["result" => "success"];
 
 
 case "update_venue":
@@ -233,13 +253,7 @@ case "update_location":
             return ["result" => "success"];
 
 
-case "update_venue_image":
-            $r = makeQuery($c,"UPDATE
-               `track_venues`
-               SET `img` = ?
-               WHERE `id` = ?
-               ",$p,false);
-            return $r;
+
 
    /* DELETE */
 

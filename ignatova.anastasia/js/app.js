@@ -41,6 +41,15 @@ $(()=>{
 		checkSigninForm();
 	})
 
+ .on("submit", "#signup-form", function(e) {
+      e.preventDefault();
+      checkSignup();
+   })
+   .on("submit", "#signup-form2", function(e) {
+      e.preventDefault();
+      checkSignup2();
+   })
+   
 	.on("submit", "#list-add-form",function(e) {
 		e.preventDefault();
 		// checkSigninForm();

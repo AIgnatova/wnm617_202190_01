@@ -38,7 +38,6 @@ const RecentPage = async() => {
 	let mapEl = await makeMap("#page-recent .map");
 	makeMarkers(mapEl,venues);
 
-
 let {infoWindow,map,markers} = mapEl.data();
 	markers.forEach((o,i)=>{
       o.addListener("click",function(){
@@ -100,7 +99,7 @@ let venue_result = await resultQuery({
    });
 
    let [venue] = venue_result;
-   $(".venue-profile-top>img").attr("src",venue.img);
+   $(".venue-profile-topimg").attr("src",venue.img);
    $(".venue-profile-bottom .description").html(makeVenueProfile(venue));
 
    let locations_result = await resultQuery({
