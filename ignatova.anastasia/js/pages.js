@@ -99,7 +99,7 @@ let venue_result = await resultQuery({
    });
 
    let [venue] = venue_result;
-   $(".venue-profile-topimg").attr("src",venue.img);
+   $(".venue-profile-top>img").attr("src",venue.img);
    $(".venue-profile-bottom .description").html(makeVenueProfile(venue));
 
    let locations_result = await resultQuery({

@@ -8,6 +8,7 @@ const makeVenueList = templater((o)=>`
  <div class="display-flex venue-jump" data-id="${o.id}">
       <div class="flex-none venue-list-item-image">
          <img src="${o.img}" alt="Venue image">
+         
       </div>
       <div class="flex-stretch venue-list-item-body padding-md">
          <div class="venue-list-item-name">${o.name}</div>
@@ -52,7 +53,14 @@ const makeVenueProfile = (o) => `
 </div>
 `;
 
-
+  // <img src="${o.img}" alt="">
+  //  </div>
+  //   <div class="user-profile-info">
+  //   <h3>${o.name}</h3>
+  //   <label for="user-profile-username" class="form-label">Username</label>
+  //   <p>&commat;${o.username}</p>
+  //   <label for="user-profile-email" class="form-label">Email</label>
+  //   <p>${o.email}</p>
 
 
 

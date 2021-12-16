@@ -187,6 +187,11 @@ background-color: var(--color-accent-medium);
 
 /*PROFILE PAGE EDITS*/
 
+.venue-profile-middle {
+	box-shadow: 0 5px 10px rgb(114 255 205 / 50%);
+}
+
+
 .venue-profile-middle li.active {
    background-color: var(--color-accent-medium);
 }
@@ -223,9 +228,10 @@ margin-bottom: .7em;
 }
 
 .user-profile-info p {
-	padding-left: 10px;
-	font-size: 1.2em;
-	line-height: .1em;
+	padding-left: 10px 0 0 0;
+	font-size: 1em;
+	line-height: 1.2em;
+	margin: 0;
 }
 
 .user-profile-info.form-label {
@@ -293,6 +299,7 @@ font: inherit;
 .js-logout.form-button{
 
 width: 90%;
+background-color: var(--color-accent-light);
 }
 .form .form-button,
 .form-button .js-logout {
@@ -463,6 +470,10 @@ text-decoration: none;
 
 /*USER Profile*/
 
+/*.user-profile-image img{
+	object-fit: cover;
+}*/
+
 
 .user-profile-image {
 	float: left;
@@ -470,7 +481,6 @@ text-decoration: none;
 	margin: 0 auto;
  	border-radius: 50%;
     background-color: var(--color-neutral-light);
-    object-fit: contain;
     width: 8em;
     height: 8em;
     overflow: hidden;
@@ -587,10 +597,15 @@ text-decoration: none;
 }
 
 
+.description {
+	margin-left: 1em;
 
+}
 
-
-
+.description h2 {
+text-align: center;
+margin-bottom: 1em;
+}
 
 
 
@@ -720,6 +735,7 @@ text-decoration: none;
 
  }
 
+
 .venue-profile-bottom {
 	flex: 1 1 auto;
 	position: relative;
@@ -771,25 +787,23 @@ text-decoration: none;
 
 }
 
-.signin-logo {
+.signin-logo.img {
 	width: 25em;
 	height: 25em;
 	margin: 0 auto;
 }
 
-.signin-logo img {
-
-}
 
 .image-picker.replace input {
    display: none;
 }
 
+
 .thumbnail {
   position:relative;
   display:inline-block;
-  width:6em;
-  height:6em;
+  width:4em;
+  height:4em;
   border-radius:0.6em;
   border:0.25em solid white;
   vertical-align:middle;

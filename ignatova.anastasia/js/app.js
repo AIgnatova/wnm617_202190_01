@@ -49,7 +49,7 @@ $(()=>{
       e.preventDefault();
       checkSignup2();
    })
-   
+
 	.on("submit", "#list-add-form",function(e) {
 		e.preventDefault();
 		// checkSigninForm();
@@ -121,7 +121,7 @@ $(()=>{
       }).then(d=>{
          if(d.error) throw(d.error);
 
-         history.go(-1);
+         history.go(-2);
       })
    })
 
@@ -129,7 +129,7 @@ $(()=>{
       let image = $("#venue-upload-filename").val();
       query({
          type:"update_venue_image",
-         params: [image,sessionStorage.userId]
+         params: [image,sessionStorage.venueId]
       }).then(d=>{
          if(d.error) throw(d.error);
 
